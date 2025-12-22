@@ -10,7 +10,7 @@
 
 # Plots density of log values segreggated by sign, ignoring diagonal
 # coefficients and zeroes.
-
+#' @noRd
 plot.density.log <- function( x.data, x.label, plot.file.path, asp )
 {
     # get values avoiding matrix diagonal
@@ -54,7 +54,7 @@ plot.density.log <- function( x.data, x.label, plot.file.path, asp )
 
 # Plots density of log values, together for initial and final steps of
 # autospill, and calculation with positive and negative populations.
-
+#' @noRd
 plot.density.log.together <- function( x.table, x.label, plot.file.path, asp )
 {
 

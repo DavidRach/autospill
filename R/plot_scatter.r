@@ -10,7 +10,7 @@
 
 # Makes scatter plots of compensated and uncompensated data, with regression
 # and reference lines, and a label showing slope error.
-
+#' @noRd
 plot.scatter <- function(
     expr.data.unco.x, expr.data.unco.y, expr.data.comp.x, expr.data.comp.y,
     spillover.unco.inte, spillover.unco.coef,

@@ -9,7 +9,7 @@
 
 
 # Plots matrix coefficients, by rows or columns.
-
+#' @noRd
 plot.matrix <- function( the.matrix, by.rows, figure.dir, figure.file.label,
     flow.control, asp )
 {

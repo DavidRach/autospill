@@ -10,6 +10,7 @@
 
 # Plots gate, including intermediate steps.
 
+#' @noRd
 plot.gate <- function( gate.stage, samp, gate.data, gate.marker, gate.bound,
     gate.region, gate.population, flow.control, asp )
 {
