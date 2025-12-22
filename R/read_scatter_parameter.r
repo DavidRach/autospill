@@ -8,9 +8,12 @@
 # license. See the LICENSE file for details.
 
 
-# Returns a vector with two scatter parameters.
-
-read.scatter.parameter <- function( asp )
+#' Returns a vector with two scatter parameters.
+#'
+#' @param asp
+#' 
+#' @noRd
+read.scatter.parameter <- function(asp)
 {
     if ( ! is.null( asp$scatter.parameter.file.name ) &&
             file.exists( asp$scatter.parameter.file.name ) )

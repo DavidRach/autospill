@@ -8,9 +8,13 @@
 # license. See the LICENSE file for details.
 
 
-# Returns a list with gate parameters per marker.
-
-read.gate.parameter <- function( flow.control, asp )
+#' Returns a list with gate parameters per marker.
+#' 
+#' @param flow.control TODOLIST
+#' @param asp TODOLIST
+#' 
+#' @noRd
+read.gate.parameter <- function(flow.control, asp)
 {
     if ( ! is.null( asp$gate.parameter.file.name ) &&
             file.exists( asp$gate.parameter.file.name ) )

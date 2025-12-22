@@ -31,8 +31,7 @@
 #'     and \code{\link{get.autospill.param}}.
 #'
 #' @export
-
-plot_convergence <- function( convergence.log, popnegpop.slope, asp )
+plot_convergence <- function(convergence.log, popnegpop.slope, asp)
 {
     convergence.ggdata <- convergence.log
     convergence.ggdata$delta.change <- abs( convergence.ggdata$delta.change )

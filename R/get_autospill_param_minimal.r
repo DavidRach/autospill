@@ -10,7 +10,8 @@
 
 # Returns parameters for running a calculation of compensation with autospill,
 # without creating any figures or tables.
-
+#' 
+#' @noRd
 get.autospill.param.minimal <- function()
 {
     color.pal <- brewer.pal( 9, "Set1" )

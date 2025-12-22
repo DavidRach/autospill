@@ -10,7 +10,8 @@
 
 # Returns parameters for running a calculation of compensation with autospill,
 # creating all figures and tables used in autospill website.
-
+#' 
+#' @noRd
 get.autospill.param.website <- function()
 {
     autosp.param <- get.autospill.param.final.step()

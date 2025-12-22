@@ -8,10 +8,16 @@
 # license. See the LICENSE file for details.
 
 
-# Plots density of log values segreggated by sign, ignoring diagonal
-# coefficients and zeroes.
+#' Plots density of log values segreggated by sign, ignoring diagonal
+#' coefficients and zeroes.
+#' 
+#' @param x.data TODOLIST
+#' @param x.label TODOLIST
+#' @param plot.file.path TODOLIST
+#' @param asp TODOLIST
+#' 
 #' @noRd
-plot.density.log <- function( x.data, x.label, plot.file.path, asp )
+plot.density.log <- function(x.data, x.label, plot.file.path, asp)
 {
     # get values avoiding matrix diagonal
     x.data.n <- nrow( x.data )

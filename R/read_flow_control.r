@@ -57,8 +57,7 @@
 #' @seealso \code{\link{get.autospill.param}}.
 #'
 #' @export
-
-read.flow.control <- function( control.dir, control.def.file, asp )
+read.flow.control <- function(control.dir, control.def.file, asp)
 {
     # read markers from controls
 

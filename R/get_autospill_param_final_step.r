@@ -10,7 +10,8 @@
 
 # Returns parameters for running a calculation of compensation with autospill,
 # creating figures and tables at final step.
-
+#' 
+#' @noRd
 get.autospill.param.final.step <- function()
 {
     autosp.param <- get.autospill.param.minimal()

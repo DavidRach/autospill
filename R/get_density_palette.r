@@ -9,8 +9,12 @@
 
 
 # Returns a good color palette for a given density distribution.
-
-get.density.palette <- function( dens, asp )
+#'
+#' @param dens TODOLIST
+#' @param asp TODOLIST
+#' 
+#' @noRd
+get.density.palette <- function(dens, asp)
 {
     rainbow.palette <- colorRampPalette( asp$density.palette.base.color )(
         asp$density.palette.base.n )

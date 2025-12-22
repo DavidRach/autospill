@@ -8,10 +8,14 @@
 # license. See the LICENSE file for details.
 
 
-# Creates figure and table directories.
-# Returns directories for scatter figures.
-
-create.directory <- function( flow.control, asp )
+#' Creates figure and table directories.
+#' Returns directories for scatter figures.
+#'
+#' @param flow.control TODOLIST
+#' @param asp TODOLIST
+#' 
+#' @noRd
+create.directory <- function(flow.control, asp)
 {
     if ( ! is.null( asp$figure.scatter.dir.base ) ) {
         figure.scatter.dir <- sprintf( "%s_%s", asp$figure.scatter.dir.base,

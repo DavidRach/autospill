@@ -18,8 +18,15 @@
 #
 # Uses numerical search of maxima over estimated densities.
 # Uses Voronoi tesselations to improve density estimation around maxima.
-
-do.gate <- function( gate.data, gate.param, samp, flow.control, asp )
+#'
+#' @param gate.data TODOLIST
+#' @param gate.param TODOLIST
+#' @param samp TODOLIST
+#' @param flow.control TODOLIST
+#' @param asp TODOLIST
+#' 
+#' @noRd
+do.gate <- function(gate.data, gate.param, samp, flow.control, asp)
 {
     gate.marker <- colnames( gate.data )
 

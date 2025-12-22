@@ -8,9 +8,12 @@
 # license. See the LICENSE file for details.
 
 
-# Checks condition, if not true prints error message and stops execution.
-
-check.critical <- function( condition, error.msg )
+#' Checks condition, if not true prints error message and stops execution.
+#' @param condition TODOLIST
+#' @param error.msg TODOLIST
+#' 
+#' @noRd
+check.critical <- function(condition, error.msg)
 {
     if ( ! all( condition ) )
     {

@@ -12,7 +12,14 @@
 # p-value, of a robust linear model fitted to the input data.
 #
 # Reverts to a standard linear model in case of no convergence.
-
+#'
+#' @param x.data TODOLIST
+#' @param y.data TODOLIST
+#' @param x.name TODOLIST
+#' @param y.name TODOLIST
+#' @param asp TODOLIST
+#' 
+#' @noRd
 fit.robust.linear.model <- function( x.data, y.data, x.name, y.name, asp )
 {
     xy.data <- data.frame( x = x.data, y = y.data )

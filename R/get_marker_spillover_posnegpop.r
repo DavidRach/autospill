@@ -29,8 +29,7 @@
 #'     \code{\link{read.flow.control}}, and \code{\link{get.autospill.param}}.
 #'
 #' @export
-
-get.marker.spillover.posnegpop <- function( flow.gate, flow.control, asp )
+get.marker.spillover.posnegpop <- function(flow.gate, flow.control, asp)
 {
     marker.spillpopu.zero <- rep( 0, flow.control$marker.n )
     names( marker.spillpopu.zero ) <- flow.control$marker

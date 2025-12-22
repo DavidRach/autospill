@@ -8,10 +8,14 @@
 # license. See the LICENSE file for details.
 
 
-# Returns two lists with transformation parameters per marker, for direct and
-# inverse tranformation.
-
-get.transformation <- function( flow.control, asp )
+#' Returns two lists with transformation parameters per marker, for direct and
+#' inverse tranformation.
+#'
+#' @param flow.control TODOLIST
+#' @param asp TODOLIST
+#' 
+#' @noRd
+get.transformation <- function(flow.control, asp)
 {
     if ( ! is.null( asp$transformation.parameter.file.name ) &&
             file.exists( asp$transformation.parameter.file.name ) )

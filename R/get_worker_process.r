@@ -8,10 +8,13 @@
 # license. See the LICENSE file for details.
 
 
-# Returns the number of worker processes, using the number of available logical
-# cores as default value.
-
-get.worker.process <- function( worker.process.n )
+#' Returns the number of worker processes, using the number of available logical
+#' cores as default value.
+#'
+#' @param worker.process.n TODOLIST
+#' 
+#' @noRd
+get.worker.process <- function(worker.process.n)
 {
     ifelse( worker.process.n != 0, worker.process.n, detectCores() )
 }

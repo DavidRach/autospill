@@ -8,9 +8,13 @@
 # license. See the LICENSE file for details.
 
 
-# Returns a vector of scale breaks well distributed as powers of 10, inside
-# the given range limit.plot.untr and avoiding exponents smaller than mix.exp.
-
+#' Returns a vector of scale breaks well distributed as powers of 10, inside
+#' the given range limit.plot.untr and avoiding exponents smaller than mix.exp.
+#'
+#' @param limit.plot.untr TODOLIST
+#' @param min.exp TODOLIST
+#' 
+#' @noRd
 get.scale.breaks.untransformed <- function( limit.plot.untr, min.exp )
 {
     if ( limit.plot.untr[ 1 ] > 10^min.exp )

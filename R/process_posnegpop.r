@@ -39,8 +39,7 @@
 #'     \code{\link{read.flow.control}}, and \code{\link{get.autospill.param}}.
 #'
 #' @export
-
-process.posnegpop <- function( marker.spillover.unco.untr, flow.gate,
+process.posnegpop <- function(marker.spillover.unco.untr, flow.gate,
     flow.control, asp )
 {
     # get spillover and compensation matrices

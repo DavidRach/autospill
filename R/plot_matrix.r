@@ -8,7 +8,15 @@
 # license. See the LICENSE file for details.
 
 
-# Plots matrix coefficients, by rows or columns.
+#' Plots matrix coefficients, by rows or columns.
+#' 
+#' @param the.matrix TODOLIST
+#' @param by.rows TODOLIST
+#' @param figure.dir TODOLIST
+#' @param figure.file.label TODOLIST
+#' @param flow.control TODOLIST
+#' @param asp TODOLIST
+#' 
 #' @noRd
 plot.matrix <- function( the.matrix, by.rows, figure.dir, figure.file.label,
     flow.control, asp )

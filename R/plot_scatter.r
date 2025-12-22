@@ -8,8 +8,26 @@
 # license. See the LICENSE file for details.
 
 
-# Makes scatter plots of compensated and uncompensated data, with regression
-# and reference lines, and a label showing slope error.
+#' Makes scatter plots of compensated and uncompensated data, with regression
+#' and reference lines, and a label showing slope error.
+#' 
+#' @param expr.data.unco.x TODOLIST
+#' @param expr.data.unco.y TODOLIST
+#' @param expr.data.comp.x TODOLIST
+#' @param expr.data.comp.y TODOLIST
+#' @param spillover.unco.inte TODOLIST
+#' @param spillover.unco.coef TODOLIST
+#' @param spillover.comp.inte TODOLIST
+#' @param spillover.comp.coef TODOLIST
+#' @param spillover.comp.slop TODOLIST
+#' @param marker TODOLIST
+#' @param marker.proper TODOLIST
+#' @param scale.untransformed TODOLIST
+#' @param figure.file.label TODOLIST
+#' @param flow.gate TODOLIST
+#' @param flow.control TODOLIST
+#' @param asp TODOLIST
+#' 
 #' @noRd
 plot.scatter <- function(
     expr.data.unco.x, expr.data.unco.y, expr.data.comp.x, expr.data.comp.y,

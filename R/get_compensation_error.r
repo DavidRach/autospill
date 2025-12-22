@@ -8,9 +8,20 @@
 # license. See the LICENSE file for details.
 
 
-# Returns a list of matrices discribing compensation error, with intercepts,
-# coefficients, slopes, and skewness.
-
+#' Returns a list of matrices discribing compensation error, with intercepts,
+#'  coefficients, slopes, and skewness.
+#'
+#' @param expr.data.unco TODOLIST
+#' @param expr.data.comp TODOLIST
+#' @param marker.spillover.unco TODOLIST
+#' @param scale.untransformed TODOLIST
+#' @param plot.figure TODOLIST
+#' @param figure.label TODOLIST
+#' @param flow.gate TODOLIST
+#' @param flow.control TODOLIST
+#' @param asp TODOLIST
+#' 
+#' @noRd
 get.compensation.error <- function( expr.data.unco, expr.data.comp,
     marker.spillover.unco, scale.untransformed, plot.figure, figure.label,
     flow.gate, flow.control, asp )

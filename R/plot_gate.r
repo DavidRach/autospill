@@ -8,11 +8,21 @@
 # license. See the LICENSE file for details.
 
 
-# Plots gate, including intermediate steps.
-
+#' Plots gate, including intermediate steps.
+#' 
+#' @param gate.stage TODOLIST
+#' @param samp TODOLIST
+#' @param gate.data TODOLIST
+#' @param gate.marker TODOLIST
+#' @param gate.bound TODOLIST
+#' @param gate.region TODOLIST
+#' @param gate.population TODOLIST
+#' @param flow.control TODOLIST
+#' @param asp TODOLIST
+#' 
 #' @noRd
-plot.gate <- function( gate.stage, samp, gate.data, gate.marker, gate.bound,
-    gate.region, gate.population, flow.control, asp )
+plot.gate <- function(gate.stage, samp, gate.data, gate.marker, gate.bound,
+    gate.region, gate.population, flow.control, asp)
 {
     if ( is.null( gate.stage ) )
         gate.stage <- -1

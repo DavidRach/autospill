@@ -31,9 +31,8 @@
 #'     \code{\link{get.autospill.param}}.
 #'
 #' @export
-
-get.marker.spillover <- function( scale.untransformed, flow.gate, flow.control,
-    asp )
+get.marker.spillover <- function(scale.untransformed, flow.gate, flow.control,
+    asp)
 {
     if ( scale.untransformed )
         expr.data <- flow.control$expr.data.untr

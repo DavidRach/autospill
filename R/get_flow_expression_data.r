@@ -9,8 +9,12 @@
 
 
 # Returns a matrix with flow expression data.
-
-get.flow.expression.data <- function( flow.set, flow.control )
+#' 
+#' @param flow.set TODOLIST
+#' @param flow.control TODOLIST
+#' 
+#' @noRd
+get.flow.expression.data <- function(flow.set, flow.control)
 {
     flow.expr.data <- lapply( 1 : length( flow.control$sample ),
         function( fs.idx ) {

@@ -29,8 +29,7 @@
 #'     \code{\link{get.autospill.param}}.
 #'
 #' @export
-
-plot_result.together <- function( flow.control, asp )
+plot_result.together <- function(flow.control, asp)
 {
     # define table filenames for slope error and skewness
 
