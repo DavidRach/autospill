@@ -1,3 +1,6 @@
+## autospill version 0.99.1
+
+Forking to fix the Windows issue
 
 ## autospill version 0.2.0
 
