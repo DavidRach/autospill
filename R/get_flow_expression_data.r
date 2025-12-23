@@ -13,6 +13,8 @@
 #' @param flow.set TODOLIST
 #' @param flow.control TODOLIST
 #' 
+#' @importFrom flowCore colnames exprs
+#' 
 #' @noRd
 get.flow.expression.data <- function(flow.set, flow.control)
 {

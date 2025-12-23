@@ -19,6 +19,9 @@
 #' @param y.name TODOLIST
 #' @param asp TODOLIST
 #' 
+#' @importFrom stats lm pt
+#' @importFrom MASS rlm
+#' 
 #' @noRd
 fit.robust.linear.model <- function( x.data, y.data, x.name, y.name, asp )
 {

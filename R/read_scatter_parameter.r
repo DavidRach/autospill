@@ -10,7 +10,9 @@
 
 #' Returns a vector with two scatter parameters.
 #'
-#' @param asp
+#' @param asp TODOLIST
+#' 
+#' @importFrom utils read.csv
 #' 
 #' @noRd
 read.scatter.parameter <- function(asp)

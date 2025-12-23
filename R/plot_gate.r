@@ -20,6 +20,12 @@
 #' @param flow.control TODOLIST
 #' @param asp TODOLIST
 #' 
+#' @importFrom fields interp.surface
+#' @importFrom ggplot2 aes element_blank element_line element_rect element_text
+#'   expansion geom_path geom_point geom_segment geom_text ggplot ggsave
+#'   guide_colorbar margin scale_color_gradientn scale_x_continuous scale_y_continuous
+#'   theme theme_bw
+#' 
 #' @noRd
 plot.gate <- function(gate.stage, samp, gate.data, gate.marker, gate.bound,
     gate.region, gate.population, flow.control, asp)

@@ -17,6 +17,11 @@
 #'     spillover with positive and negative populations. Optional parameter, it
 #'     can be \code{NULL}.
 #' @param asp List with AutoSpill parameters.
+#' 
+#' @importFrom stats sd
+#' @importFrom ggplot2 aes element_blank element_line element_rect element_text
+#'   geom_hline geom_point ggplot ggsave labs margin scale_shape_manual
+#'   scale_x_continuous scale_y_log10 theme theme_bw
 #'
 #' @return \code{NULL}.
 #'

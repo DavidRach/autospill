@@ -13,6 +13,8 @@
 #' @param flow.control TODOLIST
 #' @param asp TODOLIST
 #' 
+#' @importFrom utils read.csv
+#' 
 #' @noRd
 read.gate.parameter <- function(flow.control, asp)
 {

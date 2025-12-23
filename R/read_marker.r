@@ -19,6 +19,9 @@
 #' @param control.def.file Character string with the CSV file defining the
 #'     names and channels of the single-color controls.
 #' @param asp List with AutoSpill parameters.
+#' 
+#' @importFrom flowCore colnames read.FCS
+#' @importFrom utils read.csv read.table write.table
 #'
 #' @return Dataframe with the original and corrected names of markers.
 #'

@@ -16,6 +16,10 @@
 #' @param plot.file.path TODOLIST
 #' @param asp TODOLIST
 #' 
+#' @importFrom ggplot2 aes element_blank element_line element_rect element_text
+#'   geom_density ggplot ggsave labs margin scale_color_manual scale_fill_manual
+#'   scale_linetype_manual theme theme_bw
+#' 
 #' @noRd
 plot.density.log <- function(x.data, x.label, plot.file.path, asp)
 {

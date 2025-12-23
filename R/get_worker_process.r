@@ -13,6 +13,8 @@
 #'
 #' @param worker.process.n TODOLIST
 #' 
+#' @importFrom parallel detectCores
+#' 
 #' @noRd
 get.worker.process <- function(worker.process.n)
 {

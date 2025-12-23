@@ -21,6 +21,9 @@
 #' @param flow.control TODOLIST
 #' @param asp TODOLIST
 #' 
+#' @importFrom moments skewness
+#' @importFrom parallel mclapply
+#' 
 #' @noRd
 get.compensation.error <- function( expr.data.unco, expr.data.comp,
     marker.spillover.unco, scale.untransformed, plot.figure, figure.label,

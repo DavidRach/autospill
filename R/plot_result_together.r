@@ -15,6 +15,8 @@
 #'
 #' @param flow.control List with data and metadata of a set of controls.
 #' @param asp List with AutoSpill parameters.
+#' 
+#' @importFrom utils read.csv
 #'
 #' @return \code{NULL}.
 #'

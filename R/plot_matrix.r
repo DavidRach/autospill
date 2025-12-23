@@ -17,6 +17,10 @@
 #' @param flow.control TODOLIST
 #' @param asp TODOLIST
 #' 
+#' @importFrom ggplot2 aes element_blank element_line element_rect element_text
+#'   geom_hline geom_point ggplot ggsave labs margin scale_x_continuous sec_axis
+#'   theme theme_bw
+#' 
 #' @noRd
 plot.matrix <- function( the.matrix, by.rows, figure.dir, figure.file.label,
     flow.control, asp )

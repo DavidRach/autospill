@@ -19,6 +19,10 @@
 #' @param flow.gate List of vectors with ids of gated events per sample.
 #' @param flow.control List with data and metadata of a set of controls.
 #' @param asp List with AutoSpill parameters.
+#' 
+#' @importFrom stats sd
+#' @importFrom flowCore colnames compensation
+#' @importFrom utils write.csv
 #'
 #' @return List with three elements:
 #'     \itemize{

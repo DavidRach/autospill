@@ -13,6 +13,9 @@
 #' @param dens TODOLIST
 #' @param asp TODOLIST
 #' 
+#' @importFrom grDevices colorRampPalette
+#' @importFrom stats ecdf
+#' 
 #' @noRd
 get.density.palette <- function(dens, asp)
 {

@@ -14,6 +14,9 @@
 #' @param flow.control TODOLIST
 #' @param asp TODOLIST
 #' 
+#' @importFrom flowWorkspace flowjo_biexp
+#' @importFrom utils read.csv
+#' 
 #' @noRd
 get.transformation <- function(flow.control, asp)
 {

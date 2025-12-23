@@ -15,6 +15,8 @@
 #'
 #' @param flow.control List with data and metadata of a set of controls.
 #' @param asp List with AutoSpill parameters.
+#' 
+#' @importFrom parallel mclapply
 #'
 #' @return List of vectors, one per sample, with the ids of gated events.
 #'

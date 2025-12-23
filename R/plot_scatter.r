@@ -28,6 +28,10 @@
 #' @param flow.control TODOLIST
 #' @param asp TODOLIST
 #' 
+#' @importFrom ggplot2 aes annotate element_blank element_line element_rect element_text
+#'   geom_abline geom_blank geom_point geom_vline ggplot ggsave labs margin scale_color_manual
+#'   scale_x_continuous scale_y_continuous theme theme_bw
+#' 
 #' @noRd
 plot.scatter <- function(
     expr.data.unco.x, expr.data.unco.y, expr.data.comp.x, expr.data.comp.y,

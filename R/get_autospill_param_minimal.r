@@ -8,8 +8,10 @@
 # license. See the LICENSE file for details.
 
 
-# Returns parameters for running a calculation of compensation with autospill,
-# without creating any figures or tables.
+#' Returns parameters for running a calculation of compensation with autospill,
+#' without creating any figures or tables.
+#' 
+#' @importFrom RColorBrewer brewer.pal
 #' 
 #' @noRd
 get.autospill.param.minimal <- function()

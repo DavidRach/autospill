@@ -25,6 +25,15 @@
 #' @param flow.control TODOLIST
 #' @param asp TODOLIST
 #' 
+#' @importFrom fields interp.surface
+#' @importFrom sp point.in.polygon
+#' @importFrom tripack convex.hull tri.mesh
+#' @importFrom stats mad median
+#' @importFrom MASS bandwidth.nrd kde2d
+#' @importFrom flowCore colnames
+#' @importFrom deldir deldir tile.list which.tile
+#' 
+#' 
 #' @noRd
 do.gate <- function(gate.data, gate.param, samp, flow.control, asp)
 {

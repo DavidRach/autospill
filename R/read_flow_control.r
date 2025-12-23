@@ -17,6 +17,9 @@
 #' @param control.def.file Character string with the CSV file defining the
 #'     names and channels of the single-color controls.
 #' @param asp List with AutoSpill parameters.
+#' 
+#' @importFrom flowCore description exprs read.FCS transform transformList
+#' @importFrom utils read.csv
 #'
 #' @return List with the following elements:
 #'     \itemize{
