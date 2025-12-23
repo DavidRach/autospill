@@ -25,6 +25,9 @@ List of AutoSpill parameters. As reference, see source file
 \description{
 Returns parameters for running a calculation of compensation with AutoSpill.
 }
+\examples{
+A <- 2 + 2
+}
 \references{
 Roca \emph{et al}:
 AutoSpill: A method for calculating spillover coefficients to compensate

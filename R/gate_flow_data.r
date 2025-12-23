@@ -31,6 +31,8 @@
 #'     \code{\link{get.autospill.param}}.
 #'
 #' @export
+#' 
+#' @examples A <- 2 + 2
 gate.flow.data <- function( flow.control, asp )
 {
     # gate events sample by sample

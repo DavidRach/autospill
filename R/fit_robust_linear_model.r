@@ -22,6 +22,10 @@
 #' @importFrom stats lm pt
 #' @importFrom MASS rlm
 #' 
+#' @return TODOLIST
+#' 
+#' @examples A <- 2+2
+#' 
 #' @noRd
 fit.robust.linear.model <- function( x.data, y.data, x.name, y.name, asp )
 {

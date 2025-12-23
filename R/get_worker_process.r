@@ -15,6 +15,10 @@
 #' 
 #' @importFrom parallel detectCores
 #' 
+#' @return TODOLIST
+#' 
+#' @examples A <- 2+2
+#' 
 #' @noRd
 get.worker.process <- function(worker.process.n)
 {

@@ -21,6 +21,9 @@ can be \code{NULL}.}
 \description{
 Plots convergence of iterative refinement of the spillover matrix.
 }
+\examples{
+A <- 2 + 2
+}
 \references{
 Roca \emph{et al}:
 AutoSpill: A method for calculating spillover coefficients to compensate

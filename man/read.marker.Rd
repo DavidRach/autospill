@@ -23,6 +23,9 @@ Returns a dataframe and writes a csv file with the common set of markers in
 a set of single-color controls, together with corrected names in case of
 presence of forbidden characters.
 }
+\examples{
+A <- 2 + 2
+}
 \references{
 Roca \emph{et al}:
 AutoSpill: A method for calculating spillover coefficients to compensate

@@ -13,6 +13,11 @@
 #' 
 #' @importFrom RColorBrewer brewer.pal
 #' 
+#' @return TODOLIST
+#' 
+#' @examples A <- 2+2
+#' 
+#' 
 #' @noRd
 get.autospill.param.minimal <- function()
 {

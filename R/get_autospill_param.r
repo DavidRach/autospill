@@ -34,6 +34,8 @@
 #'     (2020).
 #'
 #' @export
+#' 
+#' @examples A <- 2 + 2
 get.autospill.param <- function( param.set = "minimal" )
 {
     get.param.function <- get0( sprintf( "get.autospill.param.%s", param.set ) )

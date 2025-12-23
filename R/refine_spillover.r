@@ -47,7 +47,8 @@
 #'     \code{\link{read.flow.control}}, and \code{\link{get.autospill.param}}.
 #'
 #' @export
-
+#' 
+#' @examples A <- 2+2
 refine.spillover <- function( marker.spillover.unco.untr,
     marker.spillover.unco.tran, flow.gate, flow.control, asp )
 {

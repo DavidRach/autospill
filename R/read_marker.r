@@ -35,6 +35,8 @@
 #' @seealso \code{\link{get.autospill.param}}.
 #'
 #' @export
+#' 
+#' @examples A <- 2 + 2
 read.marker <- function(control.dir, control.def.file, asp)
 {
     # read markers from file if available

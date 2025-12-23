@@ -17,6 +17,10 @@
 #' @importFrom flowWorkspace flowjo_biexp
 #' @importFrom utils read.csv
 #' 
+#' @return TODOLIST
+#' 
+#' @examples A <- 2+2
+#' 
 #' @noRd
 get.transformation <- function(flow.control, asp)
 {

@@ -14,6 +14,10 @@
 #' @param flow.control TODOLIST
 #' @param asp TODOLIST
 #' 
+#' @return TODOLIST
+#' 
+#' @examples A <- 2+2
+#' 
 #' @noRd
 create.directory <- function(flow.control, asp)
 {

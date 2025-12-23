@@ -48,6 +48,9 @@ List with the following elements:
 \description{
 Read data and metadata from a set of single-color controls.
 }
+\examples{
+A <- 2+2
+}
 \references{
 Roca \emph{et al}:
 AutoSpill: A method for calculating spillover coefficients to compensate

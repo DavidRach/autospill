@@ -32,6 +32,10 @@
 #'   geom_abline geom_blank geom_point geom_vline ggplot ggsave labs margin scale_color_manual
 #'   scale_x_continuous scale_y_continuous theme theme_bw
 #' 
+#' @return TODOLIST
+#' 
+#' @examples A <- 2+2
+#' 
 #' @noRd
 plot.scatter <- function(
     expr.data.unco.x, expr.data.unco.y, expr.data.comp.x, expr.data.comp.y,

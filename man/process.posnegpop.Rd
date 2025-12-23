@@ -30,6 +30,9 @@ intercepts, coefficients, slopes, and skewness.}
 Calculates spillover coefficients using positive and negative populations,
 and the corresponding compensation error.
 }
+\examples{
+A <- 2+2
+}
 \references{
 Roca \emph{et al}:
 AutoSpill: A method for calculating spillover coefficients to compensate

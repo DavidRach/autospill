@@ -8,8 +8,12 @@
 # license. See the LICENSE file for details.
 
 
-# Returns parameters for running a calculation of compensation with autospill,
-# creating figures and tables at final step.
+#' Returns parameters for running a calculation of compensation with autospill,
+#' creating figures and tables at final step.
+#' 
+#' @return TODOLIST
+#' 
+#' @examples A <- 2+2
 #' 
 #' @noRd
 get.autospill.param.final.step <- function()

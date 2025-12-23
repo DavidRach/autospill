@@ -41,6 +41,9 @@ intercepts, coefficients, slopes, and skewness.}
 \description{
 Refines spillover coefficients iteratively.
 }
+\examples{
+A <- 2+2
+}
 \references{
 Roca \emph{et al}:
 AutoSpill: A method for calculating spillover coefficients to compensate

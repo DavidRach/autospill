@@ -14,6 +14,10 @@
 #' @param limit.plot.untr TODOLIST
 #' @param min.exp TODOLIST
 #' 
+#' @return TODOLIST
+#' 
+#' @examples A <- 2+2
+#' 
 #' @noRd
 get.scale.breaks.untransformed <- function( limit.plot.untr, min.exp )
 {

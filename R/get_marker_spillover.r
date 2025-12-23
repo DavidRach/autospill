@@ -33,6 +33,8 @@
 #'     \code{\link{get.autospill.param}}.
 #'
 #' @export
+#' 
+#' @examples A <- 2 + 2
 get.marker.spillover <- function(scale.untransformed, flow.gate, flow.control,
     asp)
 {

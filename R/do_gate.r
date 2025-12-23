@@ -33,6 +33,9 @@
 #' @importFrom flowCore colnames
 #' @importFrom deldir deldir tile.list which.tile
 #' 
+#' @return TODOLIST
+#' 
+#' @examples A <- 2+2
 #' 
 #' @noRd
 do.gate <- function(gate.data, gate.param, samp, flow.control, asp)

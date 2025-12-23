@@ -18,6 +18,9 @@ List of vectors, one per sample, with the ids of gated events.
 Gates events in flow data, based on scatter parameters, for calculation of
 compensation.
 }
+\examples{
+A <- 2 + 2
+}
 \references{
 Roca \emph{et al}:
 AutoSpill: A method for calculating spillover coefficients to compensate

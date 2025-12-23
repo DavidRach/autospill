@@ -18,6 +18,9 @@ plot_result.together(flow.control, asp)
 Plots results of slope error and skewness, together for initial and final
 steps of AutoSpill, and calculation with positive and negative populations.
 }
+\examples{
+A <- 2+2
+}
 \references{
 Roca \emph{et al}:
 AutoSpill: A method for calculating spillover coefficients to compensate

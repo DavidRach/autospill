@@ -14,6 +14,10 @@
 #' 
 #' @importFrom utils read.csv
 #' 
+#' @return TODOLIST
+#' 
+#' @examples A <- 2+2
+#' 
 #' @noRd
 read.scatter.parameter <- function(asp)
 {

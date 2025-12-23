@@ -26,6 +26,10 @@
 #'   guide_colorbar margin scale_color_gradientn scale_x_continuous scale_y_continuous
 #'   theme theme_bw
 #' 
+#' @return TODOLIST
+#' 
+#' @examples A <- 2+2
+#' 
 #' @noRd
 plot.gate <- function(gate.stage, samp, gate.data, gate.marker, gate.bound,
     gate.region, gate.population, flow.control, asp)

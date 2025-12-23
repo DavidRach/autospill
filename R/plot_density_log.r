@@ -20,6 +20,10 @@
 #'   geom_density ggplot ggsave labs margin scale_color_manual scale_fill_manual
 #'   scale_linetype_manual theme theme_bw
 #' 
+#' @return TODOLIST
+#' 
+#' @examples A <- 2+2
+#' 
 #' @noRd
 plot.density.log <- function(x.data, x.label, plot.file.path, asp)
 {

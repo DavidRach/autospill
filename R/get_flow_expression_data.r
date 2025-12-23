@@ -8,12 +8,16 @@
 # license. See the LICENSE file for details.
 
 
-# Returns a matrix with flow expression data.
+#' Returns a matrix with flow expression data.
 #' 
 #' @param flow.set TODOLIST
 #' @param flow.control TODOLIST
 #' 
 #' @importFrom flowCore colnames exprs
+#' 
+#' @return TODOLIST
+#' 
+#' @examples A <- 2+2
 #' 
 #' @noRd
 get.flow.expression.data <- function(flow.set, flow.control)

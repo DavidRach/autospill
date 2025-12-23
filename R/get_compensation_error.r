@@ -24,6 +24,10 @@
 #' @importFrom moments skewness
 #' @importFrom parallel mclapply
 #' 
+#' @return TODOLIST
+#' 
+#' @examples A <- 2+2
+#' 
 #' @noRd
 get.compensation.error <- function( expr.data.unco, expr.data.comp,
     marker.spillover.unco, scale.untransformed, plot.figure, figure.label,

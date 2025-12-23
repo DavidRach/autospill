@@ -60,6 +60,8 @@
 #' @seealso \code{\link{get.autospill.param}}.
 #'
 #' @export
+#' 
+#' @examples A <- 2+2
 read.flow.control <- function(control.dir, control.def.file, asp)
 {
     # read markers from controls

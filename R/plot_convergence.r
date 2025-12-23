@@ -36,6 +36,8 @@
 #'     and \code{\link{get.autospill.param}}.
 #'
 #' @export
+#' 
+#' @examples A <- 2 + 2
 plot_convergence <- function(convergence.log, popnegpop.slope, asp)
 {
     convergence.ggdata <- convergence.log

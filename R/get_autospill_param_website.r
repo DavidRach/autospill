@@ -8,8 +8,12 @@
 # license. See the LICENSE file for details.
 
 
-# Returns parameters for running a calculation of compensation with autospill,
-# creating all figures and tables used in autospill website.
+#' Returns parameters for running a calculation of compensation with autospill,
+#' creating all figures and tables used in autospill website.
+#' 
+#' @return TODOLIST
+#' 
+#' @examples A <- 2+2
 #' 
 #' @noRd
 get.autospill.param.website <- function()

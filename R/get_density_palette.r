@@ -8,13 +8,17 @@
 # license. See the LICENSE file for details.
 
 
-# Returns a good color palette for a given density distribution.
+#' Returns a good color palette for a given density distribution.
 #'
 #' @param dens TODOLIST
 #' @param asp TODOLIST
 #' 
 #' @importFrom grDevices colorRampPalette
 #' @importFrom stats ecdf
+#' 
+#' @return TODOLIST
+#' 
+#' @examples A <- 2+2
 #' 
 #' @noRd
 get.density.palette <- function(dens, asp)

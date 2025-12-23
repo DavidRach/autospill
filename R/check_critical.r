@@ -12,6 +12,10 @@
 #' @param condition TODOLIST
 #' @param error.msg TODOLIST
 #' 
+#' @return TODOLIST
+#' 
+#' @examples A <- 2+2
+#' 
 #' @noRd
 check.critical <- function(condition, error.msg)
 {

@@ -21,6 +21,10 @@
 #'   geom_hline geom_point ggplot ggsave labs margin scale_x_continuous sec_axis
 #'   theme theme_bw
 #' 
+#' @return TODOLIST
+#' 
+#' @examples A <- 2+2
+#' 
 #' @noRd
 plot.matrix <- function( the.matrix, by.rows, figure.dir, figure.file.label,
     flow.control, asp )

@@ -19,6 +19,9 @@ Matrix with spillover coefficients.
 \description{
 Calculates spillover coefficients using positive and negative populations.
 }
+\examples{
+A <- 2+2
+}
 \references{
 Roca \emph{et al}:
 AutoSpill: A method for calculating spillover coefficients to compensate

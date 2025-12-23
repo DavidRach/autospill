@@ -15,6 +15,10 @@
 #' 
 #' @importFrom utils read.csv
 #' 
+#' @return TODOLIST
+#' 
+#' @examples A <- 2+2
+#' 
 #' @noRd
 read.gate.parameter <- function(flow.control, asp)
 {
