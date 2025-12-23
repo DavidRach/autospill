@@ -1,0 +1,18 @@
+---
+title: "Using autospill"
+package: autospill
+date: "`r BiocStyle::doc_date()`"
+format:
+  html:
+    minimal: true
+    theme: flatly
+vignette: |
+  %\VignetteIndexEntry{Workflow}
+  %\VignetteKeywords{Workflow}
+  %\VignettePackage{autospill}
+  %\VignetteEncoding{UTF-8}
+  %\VignetteEngine{quarto::html}
+  %\VignetteDepends{BiocStyle}
+---
+
+This is vignette placeholder. 

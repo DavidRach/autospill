@@ -1,22 +1,27 @@
 Package: autospill
-Version: 0.2.0
-Date: 2021-06-17
+Version: 0.99.3
+Date: 2025-12-22
 Title: AutoSpill: A method for calculating spillover coefficients to 
     compensate or unmix high-parameter flow cytometry data
 Description: AutoSpill uses robust linear regression and refinement of the 
     spillover matrix to obtain optimal compensation. It also provides robust 
     initial gating using tessellation.
-Author: Carlos P. Roca <carlosproca@gmail.com>
-Maintainer: Carlos P. Roca <carlosproca@gmail.com>
 Authors@R: person( "Carlos P.", "Roca", role = c( "aut", "cre" ), 
     email = "carlosproca@gmail.com", 
     comment = c( ORCID = "0000-0003-0230-1926" ) )
-Depends: R (>= 3.6.0)
-biocViews: 
+Depends: R (>= 4.5.0)
 Imports: deldir, fields, flowCore, flowWorkspace, ggplot2, MASS, moments, 
     parallel, RColorBrewer, rlang, sp, tripack
+Suggests: testthat, BiocStyle
 License: MIT + file LICENSE
+URL: https://github.com/DavidRach/autospill, https://davidrach.github.io/autospill/
+BugReports: https://github.com/carlosproca/autospill/issues
+biocViews: FlowCytometry, Preprocessing, Software
 Encoding: UTF-8
-LazyData: true
 Roxygen: list( markdown = TRUE )
 RoxygenNote: 7.3.3
+SystemRequirements:
+    pandoc,
+    quarto
+VignetteBuilder: quarto
+Config/testthat/edition: 3
