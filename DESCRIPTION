@@ -12,11 +12,11 @@ Authors@R: person( "Carlos P.", "Roca", role = c( "aut", "cre" ),
 Depends: R (>= 4.5.0)
 Imports: deldir, fields, flowCore, flowWorkspace, ggplot2, MASS, moments, 
     parallel, RColorBrewer, rlang, sp, tripack
-Suggests: testthat, BiocStyle
+Suggests: testthat, BiocStyle, quarto
 License: MIT + file LICENSE
 URL: https://github.com/DavidRach/autospill, https://davidrach.github.io/autospill/
 BugReports: https://github.com/carlosproca/autospill/issues
-biocViews: FlowCytometry, Preprocessing, Software
+biocViews: FlowCytometry, Preprocessing, Software, Regression
 Encoding: UTF-8
 Roxygen: list( markdown = TRUE )
 RoxygenNote: 7.3.3

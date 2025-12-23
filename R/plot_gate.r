@@ -25,6 +25,7 @@
 #'   expansion geom_path geom_point geom_segment geom_text ggplot ggsave
 #'   guide_colorbar margin scale_color_gradientn scale_x_continuous scale_y_continuous
 #'   theme theme_bw
+#' @importFrom rlang .data
 #' 
 #' @return TODOLIST
 #' 

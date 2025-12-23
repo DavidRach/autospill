@@ -21,8 +21,9 @@
 #' @param asp List with AutoSpill parameters.
 #' 
 #' @importFrom stats sd
-#' @importFrom flowCore colnames compensation
+#' @importFrom flowCore colnames compensation compensate
 #' @importFrom utils write.csv
+#' @importFrom rlang .data
 #'
 #' @return List with three elements:
 #'     \itemize{
