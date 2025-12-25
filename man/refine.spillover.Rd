@@ -7,7 +7,7 @@
 refine.spillover(
   marker.spillover.unco.untr,
   marker.spillover.unco.tran,
-  flow.gate,
+  flow.gate = NULL,
   flow.control,
   asp
 )
@@ -22,21 +22,18 @@ intercepts and coefficients, resulting from the initial spillover
 calculation in transformed scale. Optional parameter used only in
 scatter plots, it can be \code{NULL}.}
 
-\item{flow.gate}{List of vectors with ids of gated events per sample.}
+\item{flow.gate}{List of vectors with ids of gated events per sample, can be
+NULL if no gating is required.}
 
 \item{flow.control}{List with data and metadata of a set of controls.}
 
 \item{asp}{List with AutoSpill parameters.}
 }
 \value{
-List with four elements:
-\itemize{
-\item{Spillover matrix at final step.}
-\item{Compensation matrix at final step.}
-\item{Compensation error at final step, a list with four matrices:
-intercepts, coefficients, slopes, and skewness.}
-\item{Dataframe with convergence data.}
-}
+List with four elements: \itemize{ \item{Spillover matrix at final
+step.} \item{Compensation matrix at final step.} \item{Compensation error
+at final step, a list with four matrices: intercepts, coefficients, slopes,
+and skewness.} \item{Dataframe with convergence data.} }
 }
 \description{
 Refines spillover coefficients iteratively.
@@ -45,9 +42,8 @@ Refines spillover coefficients iteratively.
 A <- 2+2
 }
 \references{
-Roca \emph{et al}:
-AutoSpill: A method for calculating spillover coefficients to compensate
-or unmix high-parameter flow cytometry data.
+Roca \emph{et al}: AutoSpill: A method for calculating spillover
+coefficients to compensate or unmix high-parameter flow cytometry data.
 \emph{bioRxiv} 2020.06.29.177196;
 \href{https://doi.org/10.1101/2020.06.29.177196}{doi:10.1101/2020.06.29.177196}
 (2020).

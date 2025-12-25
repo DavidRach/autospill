@@ -13,7 +13,7 @@
 #' Read data and metadata from a set of single-color controls.
 #'
 #' @param control.dir Character string with the directory with the set of
-#'     single-color controls.
+#'     single-color controls or an object of class \code{cytoset}.
 #' @param control.def.file Character string with the CSV file defining the
 #'     names and channels of the single-color controls.
 #' @param asp List with AutoSpill parameters.
@@ -73,8 +73,12 @@ read.flow.control <- function(control.dir, control.def.file, asp)
 
     # read definition of controls
 
-    control.table <- read.csv( control.def.file, na.strings = "",
-        stringsAsFactors = FALSE )
+    if(is.null(dim(control.def.file))) {
+      control.table <- read.csv( control.def.file, na.strings = "",
+                                 stringsAsFactors = FALSE )
+    } else {
+      control.table <- control.def.file
+    }
 
     check.critical( anyDuplicated( control.table$filename ) == 0,
         "duplicated filenames in fcs data" )
@@ -159,9 +163,14 @@ read.flow.control <- function(control.dir, control.def.file, asp)
 
     # read fcs files
 
-    flow.set <- lapply( flow.file.name, function( ff )
+    flow.set <- lapply( flow.file.name, function( ff ) {
+      if(is(control.dir, "flowSet")) {
+        control.dir[[ff]]
+      } else {
         read.FCS( file.path( control.dir, ff ), transformation = NULL,
-                truncate_max_range = FALSE ) )
+          truncate_max_range=FALSE)  
+      }
+    })
 
     # get range of fcs data
 

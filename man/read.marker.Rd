@@ -8,10 +8,11 @@ read.marker(control.dir, control.def.file, asp)
 }
 \arguments{
 \item{control.dir}{Character string with the directory with the set of
-single-color controls.}
+single-color controls or an object of class \code{cytoset}.}
 
-\item{control.def.file}{Character string with the CSV file defining the
-names and channels of the single-color controls.}
+\item{control.def.file}{Character string with the CSV file or a
+\code{data.frame} defining the names and channels of the single-color
+controls.}
 
 \item{asp}{List with AutoSpill parameters.}
 }
@@ -27,9 +28,8 @@ presence of forbidden characters.
 A <- 2 + 2
 }
 \references{
-Roca \emph{et al}:
-AutoSpill: A method for calculating spillover coefficients to compensate
-or unmix high-parameter flow cytometry data.
+Roca \emph{et al}: AutoSpill: A method for calculating spillover
+coefficients to compensate or unmix high-parameter flow cytometry data.
 \emph{bioRxiv} 2020.06.29.177196;
 \href{https://doi.org/10.1101/2020.06.29.177196}{doi:10.1101/2020.06.29.177196}
 (2020).

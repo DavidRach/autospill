@@ -4,13 +4,14 @@
 \alias{get.marker.spillover}
 \title{Get spillover coefficients}
 \usage{
-get.marker.spillover(scale.untransformed, flow.gate, flow.control, asp)
+get.marker.spillover(scale.untransformed, flow.gate = NULL, flow.control, asp)
 }
 \arguments{
-\item{scale.untransformed}{Logical indicating if calculation has to be run
-in untransformed or transformed (bi-exponential) scale.}
+\item{scale.untransformed}{Logical indicating if calculation has to be run in
+untransformed or transformed (bi-exponential) scale.}
 
-\item{flow.gate}{List of vectors with ids of gated events per sample.}
+\item{flow.gate}{List of vectors with ids of gated events per sample, can be
+missing if no gating is required.}
 
 \item{flow.control}{List with data and metadata of a set of controls.}
 
@@ -26,9 +27,8 @@ Calculates spillover coefficients with robust linear models.
 A <- 2 + 2
 }
 \references{
-Roca \emph{et al}:
-AutoSpill: A method for calculating spillover coefficients to compensate
-or unmix high-parameter flow cytometry data.
+Roca \emph{et al}: AutoSpill: A method for calculating spillover
+coefficients to compensate or unmix high-parameter flow cytometry data.
 \emph{bioRxiv} 2020.06.29.177196;
 \href{https://doi.org/10.1101/2020.06.29.177196}{doi:10.1101/2020.06.29.177196}
 (2020).

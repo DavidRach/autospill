@@ -43,7 +43,7 @@ plot.scatter <- function(
     spillover.unco.inte, spillover.unco.coef,
     spillover.comp.inte, spillover.comp.coef, spillover.comp.slop,
     marker.limit.range, marker.proper.limit.range, samp, marker, marker.proper,
-    scale.untransformed, figure.file.label, flow.gate, flow.control, asp
+    scale.untransformed, figure.file.label, flow.gate=NULL, flow.control, asp
 )
 {
     expr.data.ggp <- data.frame(
@@ -52,8 +52,13 @@ plot.scatter <- function(
         z = factor( rep( c( "unco", "comp" ),
                     each = length( expr.data.unco.x ) ),
                 levels = c( "unco", "comp" ) ),
-        w = rep( 1 : length( expr.data.unco.x ) %in%
-                flow.gate[[ samp ]], 2 )
+        if(!is.null(flow.gate)) {
+            w = rep( 1 : length( expr.data.unco.x ) %in%
+                         flow.gate[[ samp ]], 2 )
+        } else {
+            w = rep( rep(TRUE, length( expr.data.unco.x )), 2 )
+        }
+
     )
 
     marker.slope.unco <- 1 / spillover.unco.coef

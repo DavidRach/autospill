@@ -12,9 +12,10 @@
 #'
 #' Calculates spillover coefficients with robust linear models.
 #'
-#' @param scale.untransformed Logical indicating if calculation has to be run
-#'     in untransformed or transformed (bi-exponential) scale.
-#' @param flow.gate List of vectors with ids of gated events per sample.
+#' @param scale.untransformed Logical indicating if calculation has to be run in
+#'   untransformed or transformed (bi-exponential) scale.
+#' @param flow.gate List of vectors with ids of gated events per sample, can be
+#'   missing if no gating is required.
 #' @param flow.control List with data and metadata of a set of controls.
 #' @param asp List with AutoSpill parameters.
 #' 
@@ -22,20 +23,19 @@
 #'
 #' @return List of two matrices, with regressions intercepts and coefficients.
 #'
-#' @references Roca \emph{et al}:
-#'     AutoSpill: A method for calculating spillover coefficients to compensate
-#'     or unmix high-parameter flow cytometry data.
-#'     \emph{bioRxiv} 2020.06.29.177196;
-#'     \href{https://doi.org/10.1101/2020.06.29.177196}{doi:10.1101/2020.06.29.177196}
-#'     (2020).
+#' @references Roca \emph{et al}: AutoSpill: A method for calculating spillover
+#'   coefficients to compensate or unmix high-parameter flow cytometry data.
+#'   \emph{bioRxiv} 2020.06.29.177196;
+#'   \href{https://doi.org/10.1101/2020.06.29.177196}{doi:10.1101/2020.06.29.177196}
+#'    (2020).
 #'
 #' @seealso \code{\link{gate.flow.data}}, \code{\link{read.flow.control}}, and
-#'     \code{\link{get.autospill.param}}.
+#'   \code{\link{get.autospill.param}}.
 #'
 #' @export
 #' 
 #' @examples A <- 2 + 2
-get.marker.spillover <- function(scale.untransformed, flow.gate, flow.control,
+get.marker.spillover <- function(scale.untransformed, flow.gate=NULL, flow.control,
     asp)
 {
     if ( scale.untransformed )
@@ -50,9 +50,14 @@ get.marker.spillover <- function(scale.untransformed, flow.gate, flow.control,
     {
         marker.proper <- samp
 
-        marker.proper.expr <- expr.data[
-            which( flow.control$event.sample == samp )[ flow.gate[[ samp ]] ],
-            marker.proper ]
+        if(!is.null(flow.gate)) {
+            marker.proper.expr <- expr.data[
+                which( flow.control$event.sample == samp )[ flow.gate[[ samp ]] ],
+                marker.proper ]
+        } else {
+            marker.proper.expr <- expr.data[ 
+                which( flow.control$event.sample == samp ), marker.proper ]
+        }
 
         marker.expr.n <- length( marker.proper.expr )
 
@@ -72,10 +77,15 @@ get.marker.spillover <- function(scale.untransformed, flow.gate, flow.control,
                 marker.spillover.coef[ marker ] <- 1.0
             else
             {
-                marker.expr <- expr.data[
-                    which( flow.control$event.sample == samp )[
-                        flow.gate[[ samp ]] ],
-                    marker ]
+                if(!is.null(flow.gate)) {
+                    marker.expr <- expr.data[
+                        which( flow.control$event.sample == samp )[
+                            flow.gate[[ samp ]] ],
+                        marker ]
+                } else {
+                    marker.expr <- expr.data[ 
+                        which( flow.control$event.sample == samp ), marker ]
+                }
 
                 marker.expr.low <- sort( marker.expr )[ expr.trim.n ]
                 marker.expr.high <- sort( marker.expr, decreasing = TRUE )[

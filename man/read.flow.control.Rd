@@ -8,7 +8,7 @@ read.flow.control(control.dir, control.def.file, asp)
 }
 \arguments{
 \item{control.dir}{Character string with the directory with the set of
-single-color controls.}
+single-color controls or an object of class \code{cytoset}.}
 
 \item{control.def.file}{Character string with the CSV file defining the
 names and channels of the single-color controls.}

@@ -13,13 +13,14 @@
 #' Refines spillover coefficients iteratively.
 #'
 #' @param marker.spillover.unco.untr List of two matrices, with regressions
-#'     intercepts and coefficients, resulting from the initial spillover
-#'     calculation in untransformed scale.
+#'    intercepts and coefficients, resulting from the initial spillover
+#'    calculation in untransformed scale.
 #' @param marker.spillover.unco.tran List of two matrices, with regressions
-#'     intercepts and coefficients, resulting from the initial spillover
-#'     calculation in transformed scale. Optional parameter used only in
-#'     scatter plots, it can be \code{NULL}.
-#' @param flow.gate List of vectors with ids of gated events per sample.
+#'    intercepts and coefficients, resulting from the initial spillover
+#'    calculation in transformed scale. Optional parameter used only in
+#'    scatter plots, it can be \code{NULL}.
+#' @param flow.gate List of vectors with ids of gated events per sample, can be
+#'   NULL if no gating is required.
 #' @param flow.control List with data and metadata of a set of controls.
 #' @param asp List with AutoSpill parameters.
 #' 
@@ -28,30 +29,25 @@
 #' @importFrom utils write.csv
 #' @importFrom rlang .data
 #'
-#' @return List with four elements:
-#'     \itemize{
-#'         \item{Spillover matrix at final step.}
-#'         \item{Compensation matrix at final step.}
-#'         \item{Compensation error at final step, a list with four matrices:
-#'             intercepts, coefficients, slopes, and skewness.}
-#'         \item{Dataframe with convergence data.}
-#'     }
+#' @return List with four elements: \itemize{ \item{Spillover matrix at final
+#'   step.} \item{Compensation matrix at final step.} \item{Compensation error
+#'   at final step, a list with four matrices: intercepts, coefficients, slopes,
+#'   and skewness.} \item{Dataframe with convergence data.} }
 #'
-#' @references Roca \emph{et al}:
-#'     AutoSpill: A method for calculating spillover coefficients to compensate
-#'     or unmix high-parameter flow cytometry data.
-#'     \emph{bioRxiv} 2020.06.29.177196;
-#'     \href{https://doi.org/10.1101/2020.06.29.177196}{doi:10.1101/2020.06.29.177196}
-#'     (2020).
+#' @references Roca \emph{et al}: AutoSpill: A method for calculating spillover
+#'   coefficients to compensate or unmix high-parameter flow cytometry data.
+#'   \emph{bioRxiv} 2020.06.29.177196;
+#'   \href{https://doi.org/10.1101/2020.06.29.177196}{doi:10.1101/2020.06.29.177196}
+#'    (2020).
 #'
 #' @seealso \code{\link{get.marker.spillover}}, \code{\link{gate.flow.data}},
-#'     \code{\link{read.flow.control}}, and \code{\link{get.autospill.param}}.
+#'   \code{\link{read.flow.control}}, and \code{\link{get.autospill.param}}.
 #'
 #' @export
 #' 
 #' @examples A <- 2+2
 refine.spillover <- function( marker.spillover.unco.untr,
-    marker.spillover.unco.tran, flow.gate, flow.control, asp )
+    marker.spillover.unco.tran, flow.gate=NULL, flow.control, asp )
 {
     # set initial values for iteration variables
 
