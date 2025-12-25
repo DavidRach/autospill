@@ -97,10 +97,10 @@ plot.gate <- function(gate.stage, samp, gate.data, gate.marker, gate.bound,
             legend.margin = margin( asp$figure.gate.bar.margin,
                 asp$figure.gate.bar.margin, asp$figure.gate.bar.margin,
                 asp$figure.gate.bar.margin ),
-            axis.ticks = element_line( size = asp$figure.panel.line.size ),
+            axis.ticks = element_line( linewidth = asp$figure.panel.line.size ),
             axis.text = element_text( size = asp$figure.axis.text.size ),
             axis.title = element_text( size = asp$figure.axis.title.size ),
-            panel.border = element_rect( size = asp$figure.panel.line.size ),
+            panel.border = element_rect( linewidth = asp$figure.panel.line.size ),
             panel.grid.major = element_blank(),
             panel.grid.minor = element_blank() )
 
@@ -125,7 +125,7 @@ plot.gate <- function(gate.stage, samp, gate.data, gate.marker, gate.bound,
 
         gate.plot <- gate.plot +
             geom_path( aes( .data$x, .data$y, color = NULL ),
-                data = gate.bound.ggp, size = asp$figure.gate.line.size,
+                data = gate.bound.ggp, linewidth = asp$figure.gate.line.size,
                 linetype = "dashed" )
     }
 
@@ -149,7 +149,7 @@ plot.gate <- function(gate.stage, samp, gate.data, gate.marker, gate.bound,
 
         gate.plot <- gate.plot +
             geom_path( aes( .data$x, .data$y, color = NULL ),
-                data = gate.region.ggp, size = asp$figure.gate.line.size )
+                data = gate.region.ggp, linewidth = asp$figure.gate.line.size )
     }
 
     if ( gate.stage <= 0 || gate.stage == 4 )
@@ -163,7 +163,7 @@ plot.gate <- function(gate.stage, samp, gate.data, gate.marker, gate.bound,
 
         gate.plot <- gate.plot +
             geom_path( aes( .data$x, .data$y, color = NULL ),
-                data = gate.boundary.ggp, size = asp$figure.gate.line.size )
+                data = gate.boundary.ggp, linewidth = asp$figure.gate.line.size )
     }
 
     if ( gate.stage <= 0 )
@@ -196,7 +196,7 @@ plot.gate <- function(gate.stage, samp, gate.data, gate.marker, gate.bound,
                     mapping = aes( x = .data$x1, y = .data$y1,
                         xend = .data$x2, yend = .data$y2 ),
                     color = asp$gate.tesselation.color,
-                    size = asp$figure.gate.line.size )
+                    linewidth = asp$figure.gate.line.size )
     }
     else if ( gate.stage == 2 )
     {
@@ -223,7 +223,7 @@ plot.gate <- function(gate.stage, samp, gate.data, gate.marker, gate.bound,
                     mapping = aes( x = .data$x1, y = .data$y1, xend = .data$x2,
                         yend = .data$y2 ),
                     color = asp$gate.tesselation.color,
-                    size = asp$figure.gate.line.size )
+                    linewidth = asp$figure.gate.line.size )
     }
     else if ( gate.stage == 3 )
     {
@@ -243,7 +243,7 @@ plot.gate <- function(gate.stage, samp, gate.data, gate.marker, gate.bound,
                     mapping = aes( x = .data$x1, y = .data$y1, xend = .data$x2,
                         yend = .data$y2 ),
                     color = asp$gate.tesselation.color,
-                    size = asp$figure.gate.line.size )
+                    linewidth = asp$figure.gate.line.size )
     }
     else if ( gate.stage == 4 )
     {
@@ -265,7 +265,7 @@ plot.gate <- function(gate.stage, samp, gate.data, gate.marker, gate.bound,
                     mapping = aes( x = .data$x1, y = .data$y1, xend = .data$x2,
                         yend = .data$y2 ),
                     color = asp$gate.tesselation.color,
-                    size = asp$figure.gate.line.size )
+                    linewidth = asp$figure.gate.line.size )
     }
 
     if ( gate.stage >= 0 )
@@ -314,12 +314,12 @@ plot.gate <- function(gate.stage, samp, gate.data, gate.marker, gate.bound,
                 ) ) +
             geom_path( aes( .data$x, .data$y, color = NULL ),
                     data = gate.bound.ggp,
-                size = asp$thumbnail.gate.line.size, linetype = "dashed" ) +
+                linewidth = asp$thumbnail.gate.line.size, linetype = "dashed" ) +
             geom_path( aes( .data$x, .data$y, color = NULL ),
-                data = gate.region.ggp, size = asp$thumbnail.gate.line.size ) +
+                data = gate.region.ggp, linewidth = asp$thumbnail.gate.line.size ) +
             geom_path( aes( .data$x, .data$y, color = NULL ),
                 data = gate.boundary.ggp,
-                size = asp$thumbnail.gate.line.size ) +
+                linewidth = asp$thumbnail.gate.line.size ) +
             geom_point( data = gate.bound$density.max,
                 size = 1.9 * asp$thumbnail.gate.point.size,
                 stroke = 0.1 * asp$thumbnail.gate.point.size,

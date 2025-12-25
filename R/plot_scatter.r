@@ -199,7 +199,7 @@ plot.scatter <- function(
                         intercept = 0,
                         color = asp$scatter.ref.line.color,
                         linetype = "dashed",
-                        size = asp$scatter.ref.line.size.factor *
+                        linewidth = asp$scatter.ref.line.size.factor *
                             asp$figure.scatter.line.size )
                 else
                     gg.ref.line.unco <- geom_blank()
@@ -208,7 +208,7 @@ plot.scatter <- function(
                     intercept = 0,
                     color = asp$scatter.ref.line.color,
                     linetype = "dashed",
-                    size = asp$scatter.ref.line.size.factor *
+                    linewidth = asp$scatter.ref.line.size.factor *
                         asp$figure.scatter.line.size )
             }
             else
@@ -228,7 +228,7 @@ plot.scatter <- function(
                         xintercept = marker.x.intercept.unco.plot,
                         color = asp$scatter.ref.line.color,
                         linetype = "dashed",
-                        size = asp$scatter.ref.line.size.factor *
+                        linewidth = asp$scatter.ref.line.size.factor *
                             asp$figure.scatter.line.size )
                 }
                 else
@@ -247,7 +247,7 @@ plot.scatter <- function(
                     xintercept = marker.x.intercept.comp.plot,
                     color = asp$scatter.ref.line.color,
                     linetype = "dashed",
-                    size = asp$scatter.ref.line.size.factor *
+                    linewidth = asp$scatter.ref.line.size.factor *
                         asp$figure.scatter.line.size )
             }
 
@@ -257,28 +257,28 @@ plot.scatter <- function(
                     gg.slope.line.unco <- geom_vline(
                         xintercept = marker.x.intercept.unco,
                         color = asp$scatter.expr.color.unco,
-                        size = asp$figure.scatter.line.size
+                        linewidth = asp$figure.scatter.line.size
                     )
                 else
                     gg.slope.line.unco <- geom_abline(
                         slope = marker.slope.unco,
                         intercept = marker.intercept.unco,
                         color = asp$scatter.expr.color.unco,
-                        size = asp$figure.scatter.line.size
+                        linewidth = asp$figure.scatter.line.size
                     )
 
                 if ( is.infinite( marker.slope.comp ) )
                     gg.slope.line.comp <- geom_vline(
                         xintercept = marker.x.intercept.comp,
                         color = asp$scatter.expr.color.comp,
-                        size = asp$figure.scatter.line.size
+                        linewidth = asp$figure.scatter.line.size
                     )
                 else
                     gg.slope.line.comp <- geom_abline(
                         slope = marker.slope.comp,
                         intercept = marker.intercept.comp,
                         color = asp$scatter.expr.color.comp,
-                        size = asp$figure.scatter.line.size )
+                        linewidth = asp$figure.scatter.line.size )
             }
             else
             {
