@@ -23,6 +23,7 @@
 #' 
 #' @importFrom flowCore colnames read.FCS
 #' @importFrom utils read.csv read.table write.table
+#' @importFrom methods is
 #'
 #' @return Dataframe with the original and corrected names of markers.
 #'

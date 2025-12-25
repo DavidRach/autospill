@@ -20,6 +20,7 @@
 #' 
 #' @importFrom flowCore description exprs read.FCS transform transformList keyword
 #' @importFrom utils read.csv
+#' @importFrom methods is
 #'
 #' @return List with the following elements:
 #'     \itemize{
