@@ -75,9 +75,12 @@ The scripts `calculate_compensation_paper.r` and
 AutoSpill for single-color controls appearing in the paper above. 
 For this, you will need to download the datasets (FCS files and auxiliary 
 `fcs_control.csv` files) from FlowRepository: 
-[MM1 dataset](https://flowrepository.org/id/FR-FCM-Z2SS), 
-[HS1 & HS2 datasets](https://flowrepository.org/id/FR-FCM-Z2ST), and 
-[Be1 dataset](https://flowrepository.org/id/FR-FCM-Z2SV). 
+
+| Experiment | ID | Primary Researcher |
+|------------|----|--------------------|
+| [MM1 dataset](https://flowrepository.org/id/FR-FCM-Z2SS) | FR-FCM-Z2SS | Carlos Roca |
+| [HS1 & HS2 datasets](https://flowrepository.org/id/FR-FCM-Z2ST) | FR-FCM-Z2ST | Carlos Roca |
+| [Be1 dataset](https://flowrepository.org/id/FR-FCM-Z2SV) | FR-FCM-Z2SV | Carlos Roca |
 
 The scripts `calculate_compensation_website.r` and 
 `calculate_compensation_website.sh` can be used to reproduce the results 

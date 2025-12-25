@@ -72,6 +72,11 @@ do.gate <- function(gate.data, gate.param, samp, flow.control, asp)
         ( 1 - asp$gate.data.trim.factor.y.max ) * gate.data.y.min +
         asp$gate.data.trim.factor.y.max * gate.data.y.max
 
+    # gate.data.trim.x.min <- gate.data.x.min + asp$gate.data.trim.factor.x.min * (gate.data.x.max - gate.data.x.min)
+    # gate.data.trim.x.max <- gate.data.x.max - (1- asp$gate.data.trim.factor.x.max) * (gate.data.x.max - gate.data.x.min)
+    # gate.data.trim.y.min <- gate.data.y.min + asp$gate.data.trim.factor.y.min * (gate.data.y.max - gate.data.y.min)
+    # gate.data.trim.y.max <- gate.data.y.max - (1- asp$gate.data.trim.factor.y.max) * (gate.data.y.max - gate.data.y.min)
+
     # set bound from trimmed data
 
     gate.bound.x.low <- gate.data.trim.x.min
@@ -85,6 +90,8 @@ do.gate <- function(gate.data, gate.param, samp, flow.control, asp)
         gate.data[ , 1 ] < gate.bound.x.high &
         gate.data[ , 2 ] > gate.bound.y.low &
         gate.data[ , 2 ] < gate.bound.y.high )
+
+    #plot(gate.data[,1], gate.data[,2], log="xy", col=(seq_along(gate.data[,1]) %in% gate.bound.data.idx)+1)
 
     gate.bound.density <- kde2d(
         gate.data[ gate.bound.data.idx, 1 ],
@@ -177,13 +184,21 @@ do.gate <- function(gate.data, gate.param, samp, flow.control, asp)
                 gate.bound.y.high ), suppressMsge = TRUE )
 
         gate.bound.tile <- tile.list( gate.bound.voronoi )
+        gate.bound.tile.pt <- vapply(gate.bound.tile, function(x) x$pt, FUN.VALUE=numeric(2))
 
         # get data in the tile of target maximum
 
+        # gate.bound.density.max.data.idx <- gate.bound.data.idx[
+        #     sapply( gate.bound.data.idx, function( gbdi )
+        #         which.tile( gate.data[ gbdi, 1 ], gate.data[ gbdi, 2 ],
+        #             gate.bound.tile ) == gate.bound.density.max.target )
+        # ]
         gate.bound.density.max.data.idx <- gate.bound.data.idx[
-            sapply( gate.bound.data.idx, function( gbdi )
-                which.tile( gate.data[ gbdi, 1 ], gate.data[ gbdi, 2 ],
-                    gate.bound.tile ) == gate.bound.density.max.target )
+            vapply(gate.bound.data.idx, function(gbdi) {
+                u <- c(gate.data[ gbdi, 1 ], gate.data[ gbdi, 2 ])
+                d2 <- colSums((u - gate.bound.tile.pt)^2)
+                which.min(d2)
+            }, FUN.VALUE = numeric(1)) == gate.bound.density.max.target
         ]
     }
     else
@@ -324,13 +339,22 @@ do.gate <- function(gate.data, gate.param, samp, flow.control, asp)
                 gate.region.y.high ), suppressMsge = TRUE )
 
         gate.region.tile <- tile.list( gate.region.voronoi )
+        gate.region.tile.pt <- vapply(gate.region.tile, function(x) x$pt, FUN.VALUE=numeric(2))
 
         # get data in the tile of largest maximum
 
+        # gate.region.density.max.data.idx <- gate.region.data.idx[
+        #     sapply( gate.region.data.idx, function( grdi )
+        #         which.tile( gate.data[ grdi, 1 ], gate.data[ grdi, 2 ],
+        #             gate.region.tile ) == 1 )
+        # ]
+
         gate.region.density.max.data.idx <- gate.region.data.idx[
-            sapply( gate.region.data.idx, function( grdi )
-                which.tile( gate.data[ grdi, 1 ], gate.data[ grdi, 2 ],
-                    gate.region.tile ) == 1 )
+            vapply(gate.region.data.idx, function(grdi) {
+                u <- c(gate.data[ grdi, 1 ], gate.data[ grdi, 2 ])
+                d2 <- colSums((u - gate.region.tile.pt)^2)
+                which.min(d2)
+            }, FUN.VALUE = numeric(1)) == 1
         ]
     }
     else
@@ -338,7 +362,11 @@ do.gate <- function(gate.data, gate.param, samp, flow.control, asp)
         gate.region.voronoi <- NULL
         gate.region.density.max.data.idx <- gate.region.data.idx
     }
-
+            vapply(gate.region.data.idx, function(grdi) {
+                u <- c(gate.data[ grdi, 1 ], gate.data[ grdi, 2 ])
+                d2 <- colSums((u - gate.region.tile.pt)^2)
+                which.min(d2)
+            }, FUN.VALUE = numeric(1)) == 1
     gate.region <- list(
         data.idx = gate.region.data.idx,
         density = gate.region.density,
@@ -359,7 +387,7 @@ do.gate <- function(gate.data, gate.param, samp, flow.control, asp)
             gate.population, flow.control, asp )
     }
 
-    # thresold data in region around target maximum
+    # threshold data in region around target maximum
 
     gate.region.max.density <- kde2d(
         gate.data[ gate.region.density.max.data.idx, 1 ],
