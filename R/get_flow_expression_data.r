@@ -10,18 +10,17 @@
 
 #' Returns a matrix with flow expression data.
 #' 
-#' @param flow.set TODOLIST
-#' @param flow.control TODOLIST
+#' @param flow.set A flowSet object
+#' @param flow.control Autospill informed parameters relating to the flowframes in the flowSet.
 #' 
 #' @importFrom flowCore colnames exprs
 #' 
-#' @return TODOLIST
+#' @return A matrix of all the exprs from all flowframes in the FlowSet
 #' 
-#' @examples A <- 2+2
+#' @examples A <- "See unit test, this is an internal function for read_flow_control"
 #' 
 #' @noRd
-get.flow.expression.data <- function(flow.set, flow.control)
-{
+get.flow.expression.data <- function(flow.set, flow.control){
     flow.expr.data <- lapply( 1 : length( flow.control$sample ),
         function( fs.idx ) {
             expr.data <- exprs( flow.set[[ fs.idx ]] )

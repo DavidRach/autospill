@@ -11,46 +11,58 @@
 #' Creates figure and table directories.
 #' Returns directories for scatter figures.
 #'
-#' @param flow.control TODOLIST
-#' @param asp TODOLIST
+#' @param flow.control Autospill informed parameters relating to the flowframes in the flowSet.
+#' @param asp List with AutoSpill parameters.
+#' @param outpath Default NULL which results in the folders being created in the 
+#'     current working directory. Provide a file.path if you wish the created 
+#'     created folders to end up elsewhere.
 #' 
-#' @return TODOLIST
+#' @return Creates the folders and returns the location information parameters
 #' 
-#' @examples A <- 2+2
+#' @examples A <- "See unit test, this is an internal function for read_flow_control"
 #' 
 #' @noRd
-create.directory <- function(flow.control, asp)
-{
-    if ( ! is.null( asp$figure.scatter.dir.base ) ) {
-        figure.scatter.dir <- sprintf( "%s_%s", asp$figure.scatter.dir.base,
-            flow.control$sample )
-        names( figure.scatter.dir ) <- flow.control$sample
+create.directory <- function(flow.control, asp, outpath){
+    prefix <- function(x) {
+        if (is.null(x)) return(NULL)
+        if (is.null(outpath)) x else file.path(outpath, x)
     }
-    else
+
+    if (!is.null(asp$figure.scatter.dir.base)) {
+        figure.scatter.dir <- sprintf(
+            "%s_%s",
+            asp$figure.scatter.dir.base,
+            flow.control$sample
+        )
+        figure.scatter.dir <- prefix(figure.scatter.dir)
+        names(figure.scatter.dir) <- flow.control$sample
+    } else {
         figure.scatter.dir <- NULL
+    }
 
     figure.dir <- c(
-        asp$figure.compensation.dir,
-        asp$figure.convergence.dir,
-        asp$figure.gate.dir,
-        asp$figure.skewness.dir,
-        asp$figure.slope.error.dir,
-        asp$figure.spillover.dir,
+        prefix(asp$figure.compensation.dir),
+        prefix(asp$figure.convergence.dir),
+        prefix(asp$figure.gate.dir),
+        prefix(asp$figure.skewness.dir),
+        prefix(asp$figure.slope.error.dir),
+        prefix(asp$figure.spillover.dir),
         figure.scatter.dir
     )
 
     table.dir <- c(
-        asp$table.compensation.dir,
-        asp$table.convergence.dir,
-        asp$table.skewness.dir,
-        asp$table.slope.error.dir,
-        asp$table.spillover.dir
+        prefix(asp$table.compensation.dir),
+        prefix(asp$table.convergence.dir),
+        prefix(asp$table.skewness.dir),
+        prefix(asp$table.slope.error.dir),
+        prefix(asp$table.spillover.dir)
     )
 
-    for ( ftd in c( figure.dir, table.dir ) )
-        if ( ! is.null( ftd ) && ! file.exists( ftd ) )
-            dir.create( ftd, recursive = TRUE )
+    for (ftd in c(figure.dir, table.dir)) {
+        if (!is.null(ftd) && !file.exists(ftd)) {
+            dir.create(ftd, recursive = TRUE)
+        }
+    }
 
     figure.scatter.dir
 }
-

@@ -1,4 +1,4 @@
-test_that("Test that get.flow.expression.data returns a exprs matrix", {
+test_that("Test that read.gate.parameter returns gating specifications", {
   expect_true(length(MetadataPath) > 0)
   expect_true(length(FolderPath) > 0)
 
@@ -10,15 +10,26 @@ test_that("Test that get.flow.expression.data returns a exprs matrix", {
   withr::local_dir(tmp)
 
   asp <- get.autospill.param("paper")
-  flow.scatter.parameter <- read.scatter.parameter( asp )
+  flow.scatter.parameter <- read.scatter.parameter(asp)
   Return <- FlowSetReturn(control.dir=FolderPath, control.def.file=MetadataPath, 
     asp=asp, flow.scatter.parameter = flow.scatter.parameter)
   
-  flow.set <- Return[[1]]
   flow.control <- Return[[2]]
-  expect_s4_class(flow.set[[1]], "flowFrame")
   expect_true("scatter.and.marker.label" %in% names(flow.control))
 
-  flow.expr.data.untr <- get.flow.expression.data(flow.set, flow.control)
-  expect_true(is.matrix(flow.expr.data.untr))
+  flow.gate.parameter <- read.gate.parameter(flow.control, asp)
+  gp <- flow.gate.parameter[[1]]
+
+    expect_type(gp, "list")
+    expect_named(
+      gp,
+      c(
+        "density.threshold",
+        "region.auto",
+        "region.factor.x.low",
+        "region.factor.x.high",
+        "region.factor.y.low",
+        "region.factor.y.high"
+      )
+    )
 })

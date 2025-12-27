@@ -10,14 +10,15 @@
 
 #' Returns a list with gate parameters per marker.
 #' 
-#' @param flow.control TODOLIST
-#' @param asp TODOLIST
+#' @param flow.control Autospill informed parameters relating to the flowframes in the flowSet.
+#' @param asp AutoSpill parameters
+#' @
 #' 
 #' @importFrom utils read.csv
 #' 
-#' @return TODOLIST
+#' @return A list with some gate specifications for each fluorophore.
 #' 
-#' @examples A <- 2+2
+#' @examples A <- "See unit test, this is an internal function for read_flow_control"
 #' 
 #' @noRd
 read.gate.parameter <- function(flow.control, asp)

@@ -11,15 +11,15 @@
 #' Returns two lists with transformation parameters per marker, for direct and
 #' inverse tranformation.
 #'
-#' @param flow.control TODOLIST
-#' @param asp TODOLIST
+#' @param flow.control Autospill informed parameters relating to the flowframes in the flowSet.
+#' @param asp AutoSpill parameters
 #' 
 #' @importFrom flowWorkspace flowjo_biexp
 #' @importFrom utils read.csv
 #' 
-#' @return TODOLIST
+#' @return Forward and Reverse Transformations
 #' 
-#' @examples A <- 2+2
+#' @examples A <- "See unit test, this is an internal function for read_flow_control"
 #' 
 #' @noRd
 get.transformation <- function(flow.control, asp)
