@@ -27,6 +27,18 @@ library(autospill)
 })
 ```
 
+```{r}
+#| label: StoreIntermediatesInTempFolder
+#| echo: FALSE
+#| warning: FALSE
+#| results: "hide"
+
+TempDir <- tempdir()
+AutospillTemp <- file.path(TempDir, "Autospill")
+if (!dir.exists(AutospillTemp)){dir.create(AutospillTemp)}
+setwd(AutospillTemp)
+```
+
 # Setup
 
 ## Installing autospill
@@ -127,6 +139,7 @@ flow.control appears to be a list of transformations. Additionally, a bunch of f
 We next proceed to gate... "do.Gate error"
 
 ```{r}
+#| eval: FALSE
 flow.gate <- gate.flow.data(flow.control=flow.control, asp=asp)
 ```
 
