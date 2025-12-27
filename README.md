@@ -7,11 +7,11 @@ spillover (spectral) matrices for unmixing spectral flow cytometry samples is
 dealt with better in **`AutoSpectral`** package.
 
 For more details, please see:  
-Roca *et al*: AutoSpill: A method for calculating spillover coefficients to 
-compensate or unmix high-parameter flow cytometry data. 
-*bioRxiv* 2020.06.29.177196; 
-[doi:10.1101/2020.06.29.177196](https://doi.org/10.1101/2020.06.29.177196) 
-\(2020\). 
+Roca *et al*: AutoSpill is a principled framework that simplifies the analysis
+of multichromatic flow cytometry data. 
+*Nature Communications* 12, 2890 (2021); 
+[doi:10.1038/s41467-021-23126-8](https://doi.org/10.1038/s41467-021-23126-8) 
+\(2021\). 
 
 And Colibri Cytometry:
 [How does AutoSpill work?](https://www.colibri-cytometry.com/post/how-does-autospill-work-and-why-does-this-produce-better-compensation)

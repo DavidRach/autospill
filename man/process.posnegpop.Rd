@@ -35,11 +35,11 @@ A <- 2+2
 }
 \references{
 Roca \emph{et al}:
-AutoSpill: A method for calculating spillover coefficients to compensate
-or unmix high-parameter flow cytometry data.
-\emph{bioRxiv} 2020.06.29.177196;
-\href{https://doi.org/10.1101/2020.06.29.177196}{doi:10.1101/2020.06.29.177196}
-(2020).
+AutoSpill is a principled framework that simplifies the analysis of multichromatic
+flow cytometry data.
+\emph{Nature Communications} 12, 2890 (2021);
+\href{https://doi.org/10.1038/s41467-021-23126-8}{https://doi.org/10.1038/s41467-021-23126-8}
+(2021).
 }
 \seealso{
 \code{\link{get.marker.spillover}}, \code{\link{gate.flow.data}},

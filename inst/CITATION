@@ -1,22 +1,20 @@
 citHeader("To cite autospill in publications use:")
-
 citEntry(
   entry    = "Article",
-  title    = paste( "AutoSpill: A method for calculating spillover", 
-      "coefficients to compensate or unmix high-parameter flow cytometry", 
-      "data" ), 
-  author   = paste( "Carlos P. Roca, Oliver T. Burton, Teresa Prezzemolo,", 
-      "Carly E. Whyte, Richard Halpert, Lukasz Kreft, James Collier,", 
-      "Alexander Botzki, Josef Spidlen, Stephanie Humblet-Baron, and Adrian", 
-      "Liston" ),
-  journal  = "bioRxiv",
-  year     = "2020",
-  number   = "2020.06.29.177196",
-  url      = "https://doi.org/10.1101/2020.06.29.177196",
+  title    = paste("AutoSpill is a principled framework that simplifies the
+   analysis of multichromatic flow cytometry data." ), 
+  author   = paste( "Carlos P. Roca, Oliver T. Burton, Vaclav Gergelits,",
+      "Teresa Prezzemolo, Carly E. Whyte, Richard Halpert, Lukasz Kreft,", 
+      "James Collier, Alexander Botzki, Josef Spidlen, Stephanie Humblet-Baron,", 
+      "and Adrian Liston"),
+  journal  = "Nature Communications",
+  year     = "2021",
+  number   = "12, 2890",
+  url      = "https://doi.org/10.1038/s41467-021-23126-8",
   textVersion = paste( "Roca et al:", 
-      "AutoSpill: A method for calculating spillover coefficients to", 
-      "compensate or unmix high-parameter flow cytometry data.", 
-      "bioRxiv 2020.06.29.177196;", 
-      "https://doi.org/10.1101/2020.06.29.177196 (2020)"
+      "AutoSpill is a principled framework that simplifies the analysis",
+      "of multichromatic flow cytometry data.", 
+      "Nature Communications (2021) 12, 2890", 
+      "https://doi.org/10.1038/s41467-021-23126-8"
   )
 )
