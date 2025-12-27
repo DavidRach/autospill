@@ -136,11 +136,65 @@ flow.control <- read.flow.control(control.dir=File_Location, control.def.file=Me
 
 flow.control appears to be a list of transformations. Additionally, a bunch of folders materialized to contain the individual figures for the respective elements.
 
-We next proceed to gate... "do.Gate error"
+We next proceed to `gate.flow.data()` function. This returns sets of images for each single-color reference control showing process of isolating the main cell population. 
 
 ```{r}
-#| eval: FALSE
 flow.gate <- gate.flow.data(flow.control=flow.control, asp=asp)
 ```
 
+The return appears to be a list with ids for cells falling within individual gates?
+
+Next up: get initial spillover matrices from untransformed and transformed data
+
+```{r}
+marker.spillover.unco.untr <- get.marker.spillover(scale.untransformed=TRUE, flow.gate=flow.gate,
+    flow.control=flow.control, asp=asp)
+```
+
+```{r}
+marker.spillover.unco.tran <- get.marker.spillover(scale.untransformed=FALSE, flow.gate,
+    flow.control, asp )
+```
+
+Both the above appear to return spillover matrices. 
+
+Next up: get spillover and compensation matrices with positive and negative populations
+
+```{r}
+spillover.error.posnegpop <- process.posnegpop(marker.spillover.unco.untr,
+    flow.gate, flow.control, asp )
+```
+
+We get a geom_point error:  Error in `geom_point()`:
+! Problem while setting up geom aesthetics.
+ℹ Error occurred in the 1st layer.
+Caused by error in `check_aesthetics()`:
+! Aesthetics must be either length 1 or the same as the data (10000).
+✖ Fix the following mappings: `alpha`.
+
+Alternatively?: refine spillover matrix iteratively (nope same errror)
+
+```{r}
+refine.spillover.result <- refine.spillover( marker.spillover.unco.untr,
+    marker.spillover.unco.tran, flow.gate, flow.control, asp )
+```
+
+Proceeding to plotting: plot results together for slope error and skewness
+
+```{r}
+plot_result.together( flow.control, asp )
+```
+
+And next up: replot convergence adding spillover error from the calculation with positive and negative populations
+
+```{r}
+plot_convergence( refine.spillover.result$convergence,
+    spillover.error.posnegpop$error$slop, asp )
+```
+
+# System Information
+
+```{r}
+sessionInfo()
+```
 
