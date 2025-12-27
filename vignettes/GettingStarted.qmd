@@ -15,4 +15,119 @@ vignette: |
   %\VignetteDepends{BiocStyle}
 ---
 
-This is vignette placeholder. 
+```{r}
+#| label: BackgroundLoadingLibrariesForVignette
+#| echo: FALSE
+#| warning: FALSE
+#| results: "hide"
+
+suppressPackageStartupMessages({
+library(BiocStyle)
+library(autospill)
+})
+```
+
+# Setup
+
+## Installing autospill
+
+To install autospill, please download from GitHub for now (we hope to get it on Bioconductor soon). 
+
+```{r}
+#| label: "Installing autospill"
+#| eval: FALSE
+
+if(!require("remotes")){install.packages("remotes")}
+remotes::install_github("https://github.com/carlosproca/autospill")
+
+# install.packages("BiocManager")
+# BiocManager::install("autospill")
+```
+
+## Loading via library
+
+```{r}
+#| label: "Load Libraries"
+library(autospill)
+```
+
+## Providing your inputs
+
+Autospill requires that you provide a file.path to the folder containing your single-color reference controls, and to a .csv file that contains the associated metadata for those files. 
+
+Depending on your system, you would provision them as follows: 
+
+```{r}
+#| eval: FALSE
+
+# For Windows
+File_Location <- file.path("C:", "Users", "JohnDoe", "Desktop", "TodaysExperiment")
+
+# For MacOS
+#File_Location <- file.path("/home", "JohnDoe", "Desktop", "TodaysExperiment")
+
+# For Linux
+#File_Location <- file.path("/home", "JohnDoe", "Desktop", "TodaysExperiment")
+
+FCS_Pattern <- ".fcs$"
+FCS_Files <- list.files(path = File_Location, pattern = FCS_Pattern,
+                        full.names = TRUE, recursive = FALSE)
+```
+
+```{r}
+#| eval : FALSE
+MetadataCSV <- list.files(path = File_Location, pattern = ".csv",
+ full.names = TRUE, recursive = FALSE)
+```
+
+In the case of this vignette, we will be using the MM1 dataset highlighted in the [autospill]() paper that was downloaded from [FlowRepository](). It is stored within the autospill R packages extdata folder, which we can access as follows:
+
+```{r}
+File_Location <- system.file("extdata", package = "autospill")
+File_Location <- file.path(File_Location, "MM1")
+FCS_Pattern <- ".fcs$"
+FCS_Files <- list.files(path = File_Location, pattern = FCS_Pattern,
+                        full.names = TRUE, recursive = FALSE)
+head(basename(FCS_Files), 3)
+```
+
+```{r}
+MetadataCSV <- list.files(path = File_Location, pattern = ".csv",
+ full.names = TRUE, recursive = FALSE)
+
+MetadataCSV
+```
+
+```{r}
+Metadata <- read.csv(MetadataCSV, check.names=FALSE)
+head(Metadata, 5)
+```
+
+And finally, from within autospill we can retrieve a list of parameters to condition what extent of returned objects we want. We will use the paper for this vignette.  
+
+```{r}
+asp <- get.autospill.param( "paper" )
+class(asp)
+
+# Alternate Arguments:
+# "minimal" (No figures or tables)
+# "final.step" (With figures and tables at final step)
+# "paper" All figures and tables for paper
+# "website" All figures and tables for original AutoSpill website
+```
+
+# Running Autospill
+
+```{r}
+flow.control <- read.flow.control(control.dir=File_Location, control.def.file=Metadata, asp=asp)
+```
+
+flow.control appears to be a list of transformations. Additionally, a bunch of folders materialized to contain the individual figures for the respective elements.
+
+We next proceed to gate... "do.Gate error"
+
+```{r}
+flow.gate <- gate.flow.data(flow.control=flow.control, asp=asp)
+```
+
+
