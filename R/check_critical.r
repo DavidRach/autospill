@@ -12,9 +12,14 @@
 #' @param condition TODOLIST
 #' @param error.msg TODOLIST
 #' 
-#' @return TODOLIST
+#' @return When FALSE, prints an error and stops. 
 #' 
-#' @examples A <- 2+2
+#' @examples
+#' Folder <- system.file("extdata",package="autospill")
+#' FolderPath <- file.path(Folder, "MM1")
+#' MetadataPath <- list.files(Folder, pattern=".csv", full.names=TRUE)
+#' control <- read.csv(MetadataPath, stringsAsFactors = FALSE)
+#' NoDuplicates <- autospill:::check.critical(!duplicated(control), "Data contains duplicates")
 #' 
 #' @noRd
 check.critical <- function(condition, error.msg)

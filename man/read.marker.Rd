@@ -25,7 +25,14 @@ a set of single-color controls, together with corrected names in case of
 presence of forbidden characters.
 }
 \examples{
-A <- 2 + 2
+
+Folder <- system.file("extdata",package="autospill")
+FolderPath <- file.path(Folder, "MM1")
+MetadataPath <- list.files(Folder, pattern=".csv", full.names=TRUE)
+asp <- get.autospill.param("paper")
+flow.set.marker.table <- read.marker(control.dir=FolderPath,
+control.def.file=MetadataPath, asp=asp)
+
 }
 \references{
 Roca \emph{et al}:

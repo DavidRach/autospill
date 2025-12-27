@@ -10,13 +10,16 @@
 
 #' Returns a vector with two scatter parameters.
 #'
-#' @param asp TODOLIST
+#' @param asp The autospill list of parameters
 #' 
 #' @importFrom utils read.csv
 #' 
-#' @return TODOLIST
+#' @return Returns the two side scatter parameters
 #' 
-#' @examples A <- 2+2
+#' @examples
+#' 
+#' asp <- get.autospill.param("paper")
+#' flow.scatter.parameter <- read.scatter.parameter(asp)
 #' 
 #' @noRd
 read.scatter.parameter <- function(asp)
