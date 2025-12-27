@@ -11,9 +11,11 @@
 #' Returns parameters for running a calculation of compensation with autospill,
 #' creating all figures and tables used in autospill paper.
 #' 
-#' @return TODOLIST
+#' @return A list of parameters for downstream use
 #' 
-#' @examples A <- 2+2
+#' @examples 
+#' 
+#' asp <- get.autospill.param.paper()
 #' 
 #' @noRd
 get.autospill.param.paper <- function()

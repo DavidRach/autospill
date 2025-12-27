@@ -34,7 +34,10 @@
 #'     (2021).
 #' @export
 #' 
-#' @examples A <- 2 + 2
+#' @examples
+#' 
+#' asp <- get.autospill.param("paper")
+#' 
 get.autospill.param <- function( param.set = "minimal" )
 {
     get.param.function <- get0( sprintf( "get.autospill.param.%s", param.set ) )

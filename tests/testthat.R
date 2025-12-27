@@ -1,5 +1,6 @@
 library(testthat)
 library(autospill)
+library(withr)
 
 test_check("autospill")
 

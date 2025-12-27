@@ -11,9 +11,11 @@
 #' Returns parameters for running a calculation of compensation with autospill,
 #' creating figures and tables at final step.
 #' 
-#' @return TODOLIST
+#' @return A list of parameters for downstream use.
 #' 
-#' @examples A <- 2+2
+#' @examples 
+#' 
+#' asp <- get.autospill.param.final.step()
 #' 
 #' @noRd
 get.autospill.param.final.step <- function()

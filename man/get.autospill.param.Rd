@@ -26,7 +26,9 @@ List of AutoSpill parameters. As reference, see source file
 Returns parameters for running a calculation of compensation with AutoSpill.
 }
 \examples{
-A <- 2 + 2
+
+asp <- get.autospill.param("paper")
+
 }
 \references{
 Roca \emph{et al}:

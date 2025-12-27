@@ -13,10 +13,11 @@
 #' 
 #' @importFrom RColorBrewer brewer.pal
 #' 
-#' @return TODOLIST
+#' @return A list of parameters for downstream use.
 #' 
-#' @examples A <- 2+2
+#' @examples 
 #' 
+#' asp <- get.autospill.param.minimal()
 #' 
 #' @noRd
 get.autospill.param.minimal <- function()
