@@ -10,8 +10,8 @@ test_that("Test that check.critical still spots FALSE conditions", {
   withr::local_dir(tmp)
 
   # Checking for Duplicates
-
-  asp <- get.autospill.param("paper")
+  asp <- get.autospill.param("paper", outpath=tmp)
+  flow.scatter.parameter <- autospill:::read.scatter.parameter(asp)
   control <- read.csv(MetadataPath, stringsAsFactors = FALSE)
   expect_silent(
     autospill:::check.critical(!duplicated(control$filename), "Data contains duplicates 1")

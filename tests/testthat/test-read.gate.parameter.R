@@ -9,7 +9,7 @@ test_that("Test that read.gate.parameter returns gating specifications", {
   tmp <- withr::local_tempdir(pattern = "Autospill")
   withr::local_dir(tmp)
 
-  asp <- get.autospill.param("paper")
+  asp <- get.autospill.param("paper", outpath=tmp)
   flow.scatter.parameter <- read.scatter.parameter(asp)
   Return <- FlowSetReturn(control.dir=FolderPath, control.def.file=MetadataPath, 
     asp=asp, flow.scatter.parameter = flow.scatter.parameter)

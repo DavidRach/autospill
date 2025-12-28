@@ -11,8 +11,9 @@ FolderPath <- FolderLocation(subdir="MM1")
 MetadataPath <- list.files(FolderPath, pattern=".csv", full.names=TRUE)
 
 # The FlowSet Objects
-asp <- get.autospill.param("paper")
-flow.scatter.parameter <- autospill:::read.scatter.parameter(asp)
+
+#asp <- get.autospill.param("paper", outpath)
+#flow.scatter.parameter <- autospill:::read.scatter.parameter(asp)
 
 # Internal Generator
 

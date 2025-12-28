@@ -42,7 +42,7 @@
 #' library(autospill)
 #' asp <- get.autospill.param("paper")
 #' 
-get.autospill.param <- function( param.set = "minimal", outpath=NULL){
+get.autospill.param <- function(param.set = "minimal", outpath=NULL){
 
     get.param.function <- get0( sprintf( "get.autospill.param.%s", param.set ) )
 
@@ -87,8 +87,7 @@ get.autospill.param <- function( param.set = "minimal", outpath=NULL){
 
         table.skewness.dir <- file.path(outpath, asp$table.skewness.dir)
         asp$table.skewness.dir <- table.skewness.dir
-
-    asp
     }
+    return(asp)
 }
 

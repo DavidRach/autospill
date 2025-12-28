@@ -9,7 +9,7 @@ test_that("Test that create.directory creates directories", {
   tmp <- withr::local_tempdir(pattern = "Autospill")
   withr::local_dir(tmp)
 
-  asp <- get.autospill.param("paper")
+  asp <- get.autospill.param("paper", outpath=tmp)
   flow.scatter.parameter <- read.scatter.parameter(asp)
   Return <- FlowSetReturn(control.dir=FolderPath, control.def.file=MetadataPath, 
     asp=asp, flow.scatter.parameter = flow.scatter.parameter)
@@ -17,7 +17,7 @@ test_that("Test that create.directory creates directories", {
   flow.control <- Return[[2]]
   expect_true("scatter.and.marker.label" %in% names(flow.control))
 
-  flow.figure.scatter.dir <- create.directory(flow.control, asp, outpath=NULL)
+  flow.figure.scatter.dir <- create.directory(flow.control, asp)
 
   expect_type(flow.figure.scatter.dir, "character")
 

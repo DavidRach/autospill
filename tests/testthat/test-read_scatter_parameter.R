@@ -4,7 +4,7 @@ test_that("Test that read.scatter.parameter returns FSC and SSC", {
 
   tmp <- withr::local_tempdir(pattern = "Autospill")
   withr::local_dir(tmp)
-  asp <- get.autospill.param("paper")
+  asp <- get.autospill.param("paper", outpath=tmp)
   flow.scatter.parameter <- read.scatter.parameter(asp)
 
   expect_type(flow.scatter.parameter, "character")

@@ -4,7 +4,7 @@ test_that("Test that read.flow.control returns transform list", {
 
   tmp <- withr::local_tempdir(pattern = "Autospill")
   withr::local_dir(tmp)
-  asp <- get.autospill.param("paper")
+  asp <- get.autospill.param("paper", outpath=tmp)
   flow.control <- read.flow.control(control.dir=FolderPath,
     control.def.file=MetadataPath, asp=asp)
 

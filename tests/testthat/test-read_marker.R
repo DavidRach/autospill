@@ -9,7 +9,7 @@ test_that("Test that read.marker returns a data.frame", {
   tmp <- withr::local_tempdir(pattern = "Autospill")
   withr::local_dir(tmp)
 
-  asp <- get.autospill.param("paper")
+  asp <- get.autospill.param("paper", outpath=tmp)
 
   flow.set.marker.table <- read.marker(control.dir=FolderPath,
      control.def.file=MetadataPath, asp=asp)

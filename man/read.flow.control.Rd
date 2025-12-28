@@ -54,7 +54,8 @@ library(autospill)
 Folder <- system.file("extdata",package="autospill")
 FolderPath <- file.path(Folder, "MM1")
 MetadataPath <- list.files(FolderPath, pattern=".csv", full.names=TRUE)
-asp <- get.autospill.param("paper")
+outpath <- tempdir()
+asp <- get.autospill.param("paper", outpath=outpath)
 flow.control <- read.flow.control(control.dir=FolderPath,
  control.def.file=MetadataPath, asp=asp)
 

@@ -6,7 +6,7 @@ test_that("Test that do.gate returns indices for respective fluorophore", {
   #setwd(tmp)
   tmp <- withr::local_tempdir(pattern = "Autospill")
   withr::local_dir(tmp)
-  asp <- get.autospill.param("paper")
+  asp <- get.autospill.param("paper", outpath=tmp)
   flow.control <- read.flow.control(control.dir=FolderPath,
     control.def.file=MetadataPath, asp=asp)
   
@@ -20,7 +20,9 @@ test_that("Test that do.gate returns indices for respective fluorophore", {
     match(test_sample, flow.control$marker)]]]
 
   # Call do.gate directly
-  gate_result <- autospill:::do.gate(expr_data, gate_param, test_sample, flow.control, asp)
+  gate_result <- suppressWarnings(
+    autospill:::do.gate(expr_data, gate_param, test_sample, flow.control, asp)
+  )
 
   expect_true(is.integer(gate_result)) #For return indices
 })
