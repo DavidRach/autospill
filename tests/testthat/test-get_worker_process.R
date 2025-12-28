@@ -7,6 +7,8 @@ test_that("Test that get.worker.process returns a ", {
   tmp <- withr::local_tempdir(pattern = "Autospill")
   withr::local_dir(tmp)
   asp <- get.autospill.param("paper", outpath=tmp)
-  flow.control <- read.flow.control(control.dir=FolderPath,
-    control.def.file=MetadataPath, asp=asp)
+  Value <- get.worker.process(asp$worker.process.n)
+
+  expect_type(Value, "double")
+  expect_true(Value > 0)
 })

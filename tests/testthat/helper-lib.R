@@ -108,6 +108,3 @@ flow.sample.event.number.max <- 0
   ReturnObject <- list(flow.set=flow.set, flow.control=flow.control)
   return(ReturnObject)
 }
-
-
-  

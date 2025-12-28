@@ -19,6 +19,9 @@
 #' @param gate.population TODOLIST
 #' @param flow.control List with data and metadata of a set of controls.
 #' @param asp AutoSpill Parameters
+#' @param returnPlot Default TRUE, uses ggsave to save plots to the designated
+#'  directory. FALSE used primarily by unit testing suite, since gate_flow_data
+#'  primarily focused on returning the indices of corresponding cells. 
 #' 
 #' @importFrom fields interp.surface
 #' @importFrom ggplot2 aes element_blank element_line element_rect element_text
@@ -27,40 +30,40 @@
 #'   theme theme_bw
 #' @importFrom rlang .data
 #' 
-#' @return A plot to the designated folder
+#' @return A plot saved to the designated folder
 #' 
-#' @examples A <- 2+2
+#' @examples A <- "See unit test, internaal for gate_flow_data"
 #' 
 #' @noRd
 plot.gate <- function(gate.stage, samp, gate.data, gate.marker, gate.bound,
-    gate.region, gate.population, flow.control, asp)
-{
-    if ( is.null( gate.stage ) )
-        gate.stage <- -1
-
-    if ( gate.stage <= 1 )
+    gate.region, gate.population, flow.control, asp, returnPlot=TRUE){
+    
+    if (is.null(gate.stage)){gate.stage <- -1}
+    
+    if ( gate.stage <= 1 ){
         gate.data.ggp <- data.frame(
             x = gate.data[ , 1 ],
             y = gate.data[ , 2 ],
             z = interp.surface( gate.bound$density, gate.data ) )
-    else if ( gate.stage == 2 )
+    } else if ( gate.stage == 2 ){
         gate.data.ggp <- data.frame(
             x = gate.data[ gate.bound$density.max.data.idx, 1 ],
             y = gate.data[ gate.bound$density.max.data.idx, 2 ],
             z = interp.surface( gate.bound$density,
                 gate.data[ gate.bound$density.max.data.idx, ] ) )
-    else if ( gate.stage == 3 )
+    } else if ( gate.stage == 3 ){
         gate.data.ggp <- data.frame(
             x = gate.data[ gate.region$data.idx, 1 ],
             y = gate.data[ gate.region$data.idx, 2 ],
             z = interp.surface( gate.region$density,
                 gate.data[ gate.region$data.idx, ] ) )
-    else    # gate.stage == 4
+    } else {    # gate.stage == 4
         gate.data.ggp <- data.frame(
             x = gate.data[ gate.region$density.max.data.idx, 1 ],
             y = gate.data[ gate.region$density.max.data.idx, 2 ],
             z = interp.surface( gate.region$density,
                 gate.data[ gate.region$density.max.data.idx, ] ) )
+    }
 
     density.palette <- get.density.palette( gate.data.ggp$z, asp )
 
@@ -104,8 +107,8 @@ plot.gate <- function(gate.stage, samp, gate.data, gate.marker, gate.bound,
             panel.grid.major = element_blank(),
             panel.grid.minor = element_blank() )
 
-    if ( gate.stage <= 2 )
-    {
+    if (gate.stage <= 2){
+
         gate.bound.ggp <- data.frame(
             x = c(
                 gate.bound$x.low,
@@ -129,8 +132,7 @@ plot.gate <- function(gate.stage, samp, gate.data, gate.marker, gate.bound,
                 linetype = "dashed" )
     }
 
-    if ( gate.stage != 1 )
-    {
+    if ( gate.stage != 1 ){
         gate.region.ggp <- data.frame(
             x = c(
                 gate.region$x.low,
@@ -152,8 +154,7 @@ plot.gate <- function(gate.stage, samp, gate.data, gate.marker, gate.bound,
                 data = gate.region.ggp, linewidth = asp$figure.gate.line.size )
     }
 
-    if ( gate.stage <= 0 || gate.stage == 4 )
-    {
+    if ( gate.stage <= 0 || gate.stage == 4 ){
         gate.boundary.ggp <- data.frame(
             x = c( gate.population$boundary$x,
                 gate.population$boundary$x[ 1 ] ),
@@ -166,8 +167,7 @@ plot.gate <- function(gate.stage, samp, gate.data, gate.marker, gate.bound,
                 data = gate.boundary.ggp, linewidth = asp$figure.gate.line.size )
     }
 
-    if ( gate.stage <= 0 )
-    {
+    if ( gate.stage <= 0 ){
         gate.plot <- gate.plot +
             geom_point( data = gate.bound$density.max,
                 size = 1.9 * asp$figure.gate.point.size,
@@ -177,9 +177,7 @@ plot.gate <- function(gate.stage, samp, gate.data, gate.marker, gate.bound,
                     aes( label = .data$num.label ),
                 hjust = 0, vjust = 0, size = asp$figure.axis.text.size / 2.5,
                 color = asp$gate.tesselation.color )
-    }
-    else if ( gate.stage == 1 )
-    {
+    } else if ( gate.stage == 1 ){
         gate.plot <- gate.plot +
             geom_point( data = gate.bound$density.max,
                 size = 1.9 * asp$figure.gate.point.size,
@@ -197,9 +195,7 @@ plot.gate <- function(gate.stage, samp, gate.data, gate.marker, gate.bound,
                         xend = .data$x2, yend = .data$y2 ),
                     color = asp$gate.tesselation.color,
                     linewidth = asp$figure.gate.line.size )
-    }
-    else if ( gate.stage == 2 )
-    {
+    } else if ( gate.stage == 2 ){
         gate.plot <- gate.plot +
             geom_point( data = gate.bound$density.max[
                     gate.bound$density.max.target, ],
@@ -224,9 +220,7 @@ plot.gate <- function(gate.stage, samp, gate.data, gate.marker, gate.bound,
                         yend = .data$y2 ),
                     color = asp$gate.tesselation.color,
                     linewidth = asp$figure.gate.line.size )
-    }
-    else if ( gate.stage == 3 )
-    {
+    } else if ( gate.stage == 3 ){
         gate.plot <- gate.plot +
             geom_point( data = gate.region$density.max,
                 size = 1.9 * asp$figure.gate.point.size,
@@ -244,9 +238,7 @@ plot.gate <- function(gate.stage, samp, gate.data, gate.marker, gate.bound,
                         yend = .data$y2 ),
                     color = asp$gate.tesselation.color,
                     linewidth = asp$figure.gate.line.size )
-    }
-    else if ( gate.stage == 4 )
-    {
+    } else if ( gate.stage == 4 ){
         gate.plot <- gate.plot +
             geom_point( data = gate.region$density.max[ 1, ],
                 size = 1.9 * asp$figure.gate.point.size,
@@ -268,18 +260,22 @@ plot.gate <- function(gate.stage, samp, gate.data, gate.marker, gate.bound,
                     linewidth = asp$figure.gate.line.size )
     }
 
-    if ( gate.stage >= 0 )
+    if ( gate.stage >= 0 ){
+        if (returnPlot==TRUE){
         ggsave( file.path( asp$figure.gate.dir,
                 sprintf( "%s_%d.png", samp, gate.stage ) ),
             plot = gate.plot, width = asp$figure.width,
             height = asp$figure.height )
-    else
+        } else {return(gate.plot)}    
+    } else {
+        if (returnPlot==TRUE){
         ggsave( file.path( asp$figure.gate.dir, sprintf( "%s.png", samp ) ),
             plot = gate.plot, width = asp$figure.width,
             height = asp$figure.height )
+        } else {return(gate.plot)}
+    }
 
-    if ( gate.stage <= 0 && asp$make.thumbnail )
-    {
+    if ( gate.stage <= 0 && asp$make.thumbnail ){
         gate.plot <- ggplot( gate.data.ggp, aes( .data$x, .data$y,
                 color = .data$z ) ) +
             scale_x_continuous(
@@ -347,11 +343,13 @@ plot.gate <- function(gate.stage, samp, gate.data, gate.marker, gate.bound,
                 panel.grid.major = element_blank(),
                 panel.grid.minor = element_blank() )
 
-        ggsave( file.path( asp$figure.gate.dir,
+        if (returnPlot==TRUE){
+            ggsave( file.path( asp$figure.gate.dir,
                 sprintf( "%s%s_thumbnail.png",
                     ifelse( gate.stage == 0, "_0", "" ), samp ) ),
             plot = gate.plot, width = asp$thumbnail.width,
             height = asp$thumbnail.height )
+        } else {return(gate.plot)}
     }
 }
 

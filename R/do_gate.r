@@ -38,8 +38,8 @@
 #' @examples A <- "See unit test, internal for gate_flow_data"
 #' 
 #' @noRd
-do.gate <- function(gate.data, gate.param, samp, flow.control, asp)
-{
+do.gate <- function(gate.data, gate.param, samp, flow.control, asp){
+
     gate.marker <- colnames( gate.data )
 
     gate.bound <- NULL
@@ -140,8 +140,7 @@ do.gate <- function(gate.data, gate.param, samp, flow.control, asp)
 
     gate.bound.density.max.offset <- 1
 
-    while ( gate.bound.density.max.offset <= gate.bound.density.max.n )
-    {
+    while ( gate.bound.density.max.offset <= gate.bound.density.max.n ){
         if ( ( gate.bound.density.max$x[ gate.bound.density.max.offset ] -
                     gate.bound.x.low ) /
                     ( gate.bound.x.high - gate.bound.x.low ) >
@@ -168,8 +167,7 @@ do.gate <- function(gate.data, gate.param, samp, flow.control, asp)
         paste0( "gate error: target maximum not found in sample bound",
             samp ) )
 
-    if ( gate.bound.density.max.n > 1 )
-    {
+    if ( gate.bound.density.max.n > 1 ){
         # get voronoi tesselation for density maxima
 
         gate.bound.voronoi <- deldir( gate.bound.density.max,
@@ -185,15 +183,12 @@ do.gate <- function(gate.data, gate.param, samp, flow.control, asp)
                 which.tile( gate.data[ gbdi, 1 ], gate.data[ gbdi, 2 ],
                     gate.bound.tile ) == gate.bound.density.max.target )
         ]
-    }
-    else
-    {
+    } else {
         gate.bound.voronoi <- NULL
         gate.bound.density.max.data.idx <- gate.bound.data.idx
     }
 
-    if ( gate.param$region.auto )
-    {
+    if ( gate.param$region.auto ){
         # set region from target maximum found in bound
 
         gate.bound.density.max.x.median <- median( gate.data[
@@ -225,9 +220,7 @@ do.gate <- function(gate.data, gate.param, samp, flow.control, asp)
             gate.bound.density.max.y.median +
                 asp$gate.bound.density.max.mad.factor *
                     gate.bound.density.max.y.mad )
-    }
-    else
-    {
+    } else {
         gate.region.x.low <-
             ( 1 - gate.param$region.factor.x.low ) * gate.bound.x.low +
             gate.param$region.factor.x.low * gate.bound.x.high
@@ -256,9 +249,11 @@ do.gate <- function(gate.data, gate.param, samp, flow.control, asp)
         y.high = gate.bound.y.high
     )
 
-    if ( ! is.null( asp$figure.gate.dir ) && asp$gate.plot.stage )
+    if ( ! is.null( asp$figure.gate.dir ) && asp$gate.plot.stage ){
+        # Plot Number 1
         plot.gate( 1, samp, gate.data, gate.marker, gate.bound,
             gate.region, gate.population, flow.control, asp )
+    }
 
     gate.region.data.idx <- which(
         gate.data[ , 1 ] > gate.region.x.low &
@@ -315,8 +310,7 @@ do.gate <- function(gate.data, gate.param, samp, flow.control, asp)
     gate.region.density.max$num.label <- paste0( " ",
         row.names( gate.region.density.max ) )
 
-    if ( gate.region.density.max.n > 1 )
-    {
+    if ( gate.region.density.max.n > 1 ){
         # get voronoi tesselation for density maxima
 
         gate.region.voronoi <- deldir( gate.region.density.max,
@@ -332,9 +326,7 @@ do.gate <- function(gate.data, gate.param, samp, flow.control, asp)
                 which.tile( gate.data[ grdi, 1 ], gate.data[ grdi, 2 ],
                     gate.region.tile ) == 1 )
         ]
-    }
-    else
-    {
+    } else {
         gate.region.voronoi <- NULL
         gate.region.density.max.data.idx <- gate.region.data.idx
     }
@@ -353,6 +345,7 @@ do.gate <- function(gate.data, gate.param, samp, flow.control, asp)
     )
 
     if ( ! is.null( asp$figure.gate.dir ) && asp$gate.plot.stage ) {
+        #Plot2 and #Plot3
         plot.gate( 2, samp, gate.data, gate.marker, gate.bound, gate.region,
             gate.population, flow.control, asp )
         plot.gate( 3, samp, gate.data, gate.marker, gate.bound, gate.region,
@@ -396,14 +389,16 @@ do.gate <- function(gate.data, gate.param, samp, flow.control, asp)
     gate.population <- list( boundary = gate.population.boundary )
 
     if ( ! is.null( asp$figure.gate.dir ) && asp$gate.plot.stage ) {
+        #Plot4 #Plot0
         plot.gate( 4, samp, gate.data, gate.marker, gate.bound, gate.region,
             gate.population, flow.control, asp )
         plot.gate( 0, samp, gate.data, gate.marker, gate.bound, gate.region,
             gate.population, flow.control, asp )
-    }
-    else if ( ! is.null( asp$figure.gate.dir ) )
+    } else if ( ! is.null( asp$figure.gate.dir ) ){
+        #Plot4 #Plot0
         plot.gate( NULL, samp, gate.data, gate.marker, gate.bound, gate.region,
             gate.population, flow.control, asp )
+    }
 
     gate.population.idx
 }
