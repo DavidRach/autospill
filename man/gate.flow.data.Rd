@@ -19,7 +19,15 @@ Gates events in flow data, based on scatter parameters, for calculation of
 compensation.
 }
 \examples{
-A <- 2 + 2
+
+Folder <- system.file("extdata",package="autospill")
+FolderPath <- file.path(Folder, "MM1")
+MetadataPath <- list.files(Folder, pattern=".csv", full.names=TRUE)
+asp <- get.autospill.param("paper")
+flow.control <- read.flow.control(control.dir=FolderPath,
+ control.def.file=MetadataPath, asp=asp)
+flow.gate <- gate.flow.data(flow.control=flow.control, asp=asp)
+
 }
 \references{
 Roca \emph{et al}:

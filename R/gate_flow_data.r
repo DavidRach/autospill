@@ -32,7 +32,16 @@
 #'
 #' @export
 #' 
-#' @examples A <- 2 + 2
+#' @examples
+#' 
+#' Folder <- system.file("extdata",package="autospill")
+#' FolderPath <- file.path(Folder, "MM1")
+#' MetadataPath <- list.files(Folder, pattern=".csv", full.names=TRUE)
+#' asp <- get.autospill.param("paper")
+#' flow.control <- read.flow.control(control.dir=FolderPath,
+#'  control.def.file=MetadataPath, asp=asp)
+#' flow.gate <- gate.flow.data(flow.control=flow.control, asp=asp)
+#' 
 gate.flow.data <- function( flow.control, asp )
 {
     # gate events sample by sample

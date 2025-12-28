@@ -31,8 +31,8 @@
 #' @noRd
 get.compensation.error <- function( expr.data.unco, expr.data.comp,
     marker.spillover.unco, scale.untransformed, plot.figure, figure.label,
-    flow.gate = NULL, flow.control, asp )
-{
+    flow.gate = NULL, flow.control, asp ){
+    
     marker.spillover.zero <- rep( 0, flow.control$marker.n )
     names( marker.spillover.zero ) <- flow.control$marker
 

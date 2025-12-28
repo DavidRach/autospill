@@ -12,7 +12,6 @@
 #' 
 #' @param flow.control Autospill informed parameters relating to the flowframes in the flowSet.
 #' @param asp AutoSpill parameters
-#' @
 #' 
 #' @importFrom utils read.csv
 #' 
@@ -21,8 +20,7 @@
 #' @examples A <- "See unit test, this is an internal function for read_flow_control"
 #' 
 #' @noRd
-read.gate.parameter <- function(flow.control, asp)
-{
+read.gate.parameter <- function(flow.control, asp){
     if ( ! is.null( asp$gate.parameter.file.name ) &&
             file.exists( asp$gate.parameter.file.name ) )
     {
