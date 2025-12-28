@@ -22,7 +22,10 @@
 #'         \item{\code{"website"}}{With all figures and tables used in AutoSpill
 #'             website.}
 #'     }
-#'
+#' @param outpath Default NULL so autospill folders will be created inside your
+#' current working directory. Provide a file.path to another folder if this is
+#' not desired. 
+#' 
 #' @return List of AutoSpill parameters. As reference, see source file
 #'     \file{get_autospill_param_minimal.r}
 #'
@@ -39,12 +42,53 @@
 #' library(autospill)
 #' asp <- get.autospill.param("paper")
 #' 
-get.autospill.param <- function( param.set = "minimal" )
-{
+get.autospill.param <- function( param.set = "minimal", outpath=NULL){
+
     get.param.function <- get0( sprintf( "get.autospill.param.%s", param.set ) )
 
     check.critical( ! is.null( get.param.function ), "bad param set" )
 
-    get.param.function()
+    asp <- get.param.function()
+
+    if (!is.null(outpath) & param.set != "minimal"){
+
+        figure.scatter.dir.base <- file.path(outpath, asp$figure.scatter.dir.base)
+        asp$figure.scatter.dir.base <- figure.scatter.dir.base
+
+        figure.gate.dir <- file.path(outpath, asp$figure.gate.dir)
+        asp$figure.gate.dir <- figure.gate.dir
+
+        figure.compensation.dir <- file.path(outpath, asp$figure.compensation.dir)
+        asp$figure.compensation.dir <- figure.compensation.dir
+
+        figure.convergence.dir <- file.path(outpath, asp$figure.convergence.dir)
+        asp$figure.convergence.dir <- figure.convergence.dir
+
+        figure.spillover.dir <- file.path(outpath, asp$figure.spillover.dir)
+        asp$figure.spillover.dir <- figure.spillover.dir
+
+        figure.slope.error.dir <- file.path(outpath, asp$figure.slope.error.dir)
+        asp$figure.slope.error.dir <- figure.slope.error.dir
+
+        figure.skewness.dir <- file.path(outpath, asp$figure.skewness.dir)
+        asp$figure.skewness.dir <- figure.skewness.dir
+
+        table.compensation.dir <- file.path(outpath, asp$table.compensation.dir)
+        asp$table.compensation.dir <- table.compensation.dir
+
+        table.convergence.dir <- file.path(outpath, asp$table.convergence.dir)
+        asp$table.convergence.dir <- table.convergence.dir
+
+        table.spillover.dir <- file.path(outpath, asp$table.spillover.dir)
+        asp$table.spillover.dir <- table.spillover.dir
+
+        table.slope.error.dir <- file.path(outpath, asp$table.slope.error.dir)
+        asp$table.slope.error.dir <- table.slope.error.dir
+
+        table.skewness.dir <- file.path(outpath, asp$table.skewness.dir)
+        asp$table.skewness.dir <- table.skewness.dir
+
+    asp
+    }
 }
 

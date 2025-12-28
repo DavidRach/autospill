@@ -4,7 +4,7 @@
 \alias{read.flow.control}
 \title{Read set of flow controls}
 \usage{
-read.flow.control(control.dir, control.def.file, asp, outpath = NULL)
+read.flow.control(control.dir, control.def.file, asp)
 }
 \arguments{
 \item{control.dir}{Character string with the directory with the set of
@@ -14,10 +14,6 @@ single-color controls or an object of class \code{cytoset}.}
 names and channels of the single-color controls.}
 
 \item{asp}{List with AutoSpill parameters.}
-
-\item{outpath}{Default NULL which results in the folders being created in the
-current working directory. Provide a file.path if you wish the created
-created folders to end up elsewhere.}
 }
 \value{
 List with the following elements:

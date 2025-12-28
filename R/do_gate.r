@@ -19,11 +19,11 @@
 # Uses numerical search of maxima over estimated densities.
 # Uses Voronoi tesselations to improve density estimation around maxima.
 #'
-#' @param gate.data TODOLIST
-#' @param gate.param TODOLIST
-#' @param samp TODOLIST
-#' @param flow.control TODOLIST
-#' @param asp TODOLIST
+#' @param gate.data Exprs data from the associated flow frame
+#' @param gate.param Gate parameters? TODOLIST
+#' @param samp Iterated in sample flowframe? TODOLIST
+#' @param flow.control List with data and metadata of a set of controls.
+#' @param asp AutoSpill parameters
 #' 
 #' @importFrom fields interp.surface
 #' @importFrom sp point.in.polygon
@@ -33,9 +33,9 @@
 #' @importFrom flowCore colnames
 #' @importFrom deldir deldir tile.list which.tile
 #' 
-#' @return TODOLIST
+#' @return An index of cells falling within the population region for given sample
 #' 
-#' @examples A <- 2+2
+#' @examples A <- "See unit test, internal for gate_flow_data"
 #' 
 #' @noRd
 do.gate <- function(gate.data, gate.param, samp, flow.control, asp)

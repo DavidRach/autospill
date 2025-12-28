@@ -17,8 +17,8 @@
 #' @param gate.bound TODOLIST
 #' @param gate.region TODOLIST
 #' @param gate.population TODOLIST
-#' @param flow.control TODOLIST
-#' @param asp TODOLIST
+#' @param flow.control List with data and metadata of a set of controls.
+#' @param asp AutoSpill Parameters
 #' 
 #' @importFrom fields interp.surface
 #' @importFrom ggplot2 aes element_blank element_line element_rect element_text
@@ -27,7 +27,7 @@
 #'   theme theme_bw
 #' @importFrom rlang .data
 #' 
-#' @return TODOLIST
+#' @return A plot to the designated folder
 #' 
 #' @examples A <- 2+2
 #' 

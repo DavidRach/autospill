@@ -17,9 +17,6 @@
 #' @param control.def.file Character string with the CSV file defining the
 #'     names and channels of the single-color controls.
 #' @param asp List with AutoSpill parameters.
-#' @param outpath Default NULL which results in the folders being created in the 
-#'     current working directory. Provide a file.path if you wish the created 
-#'     created folders to end up elsewhere.
 #' 
 #' @importFrom flowCore description exprs read.FCS transform transformList keyword
 #' @importFrom utils read.csv
@@ -71,11 +68,12 @@
 #' Folder <- system.file("extdata",package="autospill")
 #' FolderPath <- file.path(Folder, "MM1")
 #' MetadataPath <- list.files(FolderPath, pattern=".csv", full.names=TRUE)
-#' asp <- get.autospill.param("paper")
+#' outpath <- tempdir()
+#' asp <- get.autospill.param("paper", outpath=outpath)
 #' flow.control <- read.flow.control(control.dir=FolderPath,
 #'  control.def.file=MetadataPath, asp=asp)
 #' 
-read.flow.control <- function(control.dir, control.def.file, asp, outpath=NULL){
+read.flow.control <- function(control.dir, control.def.file, asp){
     # read markers from controls
 
     flow.set.marker.table <- read.marker( control.dir, control.def.file, asp )
@@ -272,7 +270,7 @@ read.flow.control <- function(control.dir, control.def.file, asp, outpath=NULL){
 
     # create figure and table directories
 
-    flow.figure.scatter.dir <- create.directory(flow.control, asp, outpath=outpath)
+    flow.figure.scatter.dir <- create.directory(flow.control, asp)
 
     # update control info
 

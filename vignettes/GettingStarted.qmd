@@ -106,7 +106,9 @@ head(Metadata, 5)
 And finally, from within autospill we can retrieve a list of parameters to condition what extent of returned objects we want. We will use the paper for this vignette.  
 
 ```{r}
-asp <- get.autospill.param( "paper" )
+outpath <- tempdir()
+
+asp <- get.autospill.param("paper", outpath=outpath)
 class(asp)
 
 # Alternate Arguments:

@@ -4,7 +4,7 @@
 \alias{get.autospill.param}
 \title{Get AutoSpill parameters}
 \usage{
-get.autospill.param(param.set = "minimal")
+get.autospill.param(param.set = "minimal", outpath = NULL)
 }
 \arguments{
 \item{param.set}{Character string with the name of a parameter set. Posible
@@ -17,6 +17,10 @@ paper.}
 \item{\code{"website"}}{With all figures and tables used in AutoSpill
 website.}
 }}
+
+\item{outpath}{Default NULL so autospill folders will be created inside your
+current working directory. Provide a file.path to another folder if this is
+not desired.}
 }
 \value{
 List of AutoSpill parameters. As reference, see source file
