@@ -67,15 +67,15 @@
 #' 
 #' @examples
 #' 
+#' library(autospill)
 #' Folder <- system.file("extdata",package="autospill")
 #' FolderPath <- file.path(Folder, "MM1")
-#' MetadataPath <- list.files(Folder, pattern=".csv", full.names=TRUE)
+#' MetadataPath <- list.files(FolderPath, pattern=".csv", full.names=TRUE)
 #' asp <- get.autospill.param("paper")
 #' flow.control <- read.flow.control(control.dir=FolderPath,
 #'  control.def.file=MetadataPath, asp=asp)
 #' 
-read.flow.control <- function(control.dir, control.def.file, asp, outpath=NULL)
-{
+read.flow.control <- function(control.dir, control.def.file, asp, outpath=NULL){
     # read markers from controls
 
     flow.set.marker.table <- read.marker( control.dir, control.def.file, asp )

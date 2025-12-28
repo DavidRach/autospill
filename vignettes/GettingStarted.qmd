@@ -27,18 +27,6 @@ library(autospill)
 })
 ```
 
-```{r}
-#| label: StoreIntermediatesInTempFolder
-#| echo: FALSE
-#| warning: FALSE
-#| results: "hide"
-
-TempDir <- tempdir()
-AutospillTemp <- file.path(TempDir, "Autospill")
-if (!dir.exists(AutospillTemp)){dir.create(AutospillTemp)}
-setwd(AutospillTemp)
-```
-
 # Setup
 
 ## Installing autospill
@@ -87,7 +75,7 @@ FCS_Files <- list.files(path = File_Location, pattern = FCS_Pattern,
 ```
 
 ```{r}
-#| eval : FALSE
+#| eval: FALSE
 MetadataCSV <- list.files(path = File_Location, pattern = ".csv",
  full.names = TRUE, recursive = FALSE)
 ```
@@ -161,6 +149,7 @@ Both the above appear to return spillover matrices.
 Next up: get spillover and compensation matrices with positive and negative populations
 
 ```{r}
+#| eval: FALSE
 spillover.error.posnegpop <- process.posnegpop(marker.spillover.unco.untr,
     flow.gate, flow.control, asp )
 ```
@@ -175,6 +164,7 @@ Caused by error in `check_aesthetics()`:
 Alternatively?: refine spillover matrix iteratively (nope same errror)
 
 ```{r}
+#| eval: FALSE
 refine.spillover.result <- refine.spillover( marker.spillover.unco.untr,
     marker.spillover.unco.tran, flow.gate, flow.control, asp )
 ```
@@ -182,12 +172,14 @@ refine.spillover.result <- refine.spillover( marker.spillover.unco.untr,
 Proceeding to plotting: plot results together for slope error and skewness
 
 ```{r}
+#| eval: FALSE
 plot_result.together( flow.control, asp )
 ```
 
 And next up: replot convergence adding spillover error from the calculation with positive and negative populations
 
 ```{r}
+#| eval: FALSE
 plot_convergence( refine.spillover.result$convergence,
     spillover.error.posnegpop$error$slop, asp )
 ```

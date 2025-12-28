@@ -15,8 +15,9 @@
 #' 
 #' @return A list of parameters for downstream use.
 #' 
-#' @examples 
+#' @examples
 #' 
+#' library(autospill)
 #' asp <- get.autospill.param.minimal()
 #' 
 #' @noRd

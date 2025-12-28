@@ -18,6 +18,7 @@
 #' 
 #' @examples
 #' 
+#' library(autospill)
 #' asp <- get.autospill.param("paper")
 #' flow.scatter.parameter <- read.scatter.parameter(asp)
 #' 

@@ -10,7 +10,7 @@ Authors@R: person( "Carlos P.", "Roca", role = c( "aut", "cre" ),
     email = "carlosproca@gmail.com", 
     comment = c( ORCID = "0000-0003-0230-1926" ) )
 Depends: R (>= 4.5.0)
-Imports: deldir, fields, flowCore, flowWorkspace, ggplot2, MASS, moments, 
+Imports: deldir, fields, flowCore, flowWorkspace, ggplot2, MASS, methods, moments, 
     parallel, RColorBrewer, rlang, sp, tripack
 Suggests: testthat, BiocStyle, quarto, withr
 License: MIT + file LICENSE

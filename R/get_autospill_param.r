@@ -36,6 +36,7 @@
 #' 
 #' @examples
 #' 
+#' library(autospill)
 #' asp <- get.autospill.param("paper")
 #' 
 get.autospill.param <- function( param.set = "minimal" )

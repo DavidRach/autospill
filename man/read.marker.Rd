@@ -26,9 +26,10 @@ presence of forbidden characters.
 }
 \examples{
 
+library(autospill)
 Folder <- system.file("extdata",package="autospill")
 FolderPath <- file.path(Folder, "MM1")
-MetadataPath <- list.files(Folder, pattern=".csv", full.names=TRUE)
+MetadataPath <- list.files(FolderPath, pattern=".csv", full.names=TRUE)
 asp <- get.autospill.param("paper")
 flow.set.marker.table <- read.marker(control.dir=FolderPath,
 control.def.file=MetadataPath, asp=asp)

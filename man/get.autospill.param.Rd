@@ -27,6 +27,7 @@ Returns parameters for running a calculation of compensation with AutoSpill.
 }
 \examples{
 
+library(autospill)
 asp <- get.autospill.param("paper")
 
 }

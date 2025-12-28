@@ -54,9 +54,10 @@ Read data and metadata from a set of single-color controls.
 }
 \examples{
 
+library(autospill)
 Folder <- system.file("extdata",package="autospill")
 FolderPath <- file.path(Folder, "MM1")
-MetadataPath <- list.files(Folder, pattern=".csv", full.names=TRUE)
+MetadataPath <- list.files(FolderPath, pattern=".csv", full.names=TRUE)
 asp <- get.autospill.param("paper")
 flow.control <- read.flow.control(control.dir=FolderPath,
  control.def.file=MetadataPath, asp=asp)
