@@ -2,10 +2,6 @@ test_that("Test that get.transformation returns forward and reverse transforms",
   expect_true(length(MetadataPath) > 0)
   expect_true(length(FolderPath) > 0)
 
-  #tmp <- tempdir()
-  #AutoTemp <- file.path(tmp, "Autospill")
-  #if(!dir.exists(AutoTemp)){dir.create(AutoTemp)}
-  #setwd(AutoTemp)
   tmp <- withr::local_tempdir(pattern = "Autospill")
   withr::local_dir(tmp)
 

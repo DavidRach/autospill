@@ -1,12 +1,6 @@
 test_that("Test that read.flow.control returns transform list", {
-  expect_true(length(MetadataPath) > 0)
-  expect_true(length(FolderPath) > 0)
+  expect_true(length(the.flow.control) > 0)
 
-  tmp <- withr::local_tempdir(pattern = "Autospill")
-  withr::local_dir(tmp)
-  flow.control <- read.flow.control(control.dir=FolderPath,
-    control.def.file=MetadataPath, asp=the.asp)
-
-  expect_type(flow.control, "list")
-  expect_true("antigen" %in% names(flow.control))
+  expect_type(the.flow.control, "list")
+  expect_true("antigen" %in% names(the.flow.control))
 })
