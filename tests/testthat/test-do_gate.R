@@ -1,8 +1,12 @@
 test_that("Test that do.gate returns indices for respective fluorophore", {
   #tmp <- "C:/Users/12692/Desktop/Autospill"
   #setwd(tmp)
-  #tmp <- withr::local_tempdir(pattern = "Autospill")
-  #withr::local_dir(tmp)
+  tmp <- withr::local_tempdir(pattern = "Autospill")
+  withr::local_dir(tmp)
+
+  the.asp <- get.autospill.param("paper", outpath=tmp)
+  the.flow.control <- read.flow.control(control.dir=FolderPath,
+    control.def.file=MetadataPath, asp=the.asp)
 
   expect_true(length(the.flow.control) > 0)
 

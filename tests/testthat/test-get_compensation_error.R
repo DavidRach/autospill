@@ -1,12 +1,4 @@
 test_that("Test that get_compensation_error returns outputs", {
-  expect_true(length(MetadataPath) > 0)
-  expect_true(length(FolderPath) > 0)
-
-  #tmp <- "C:/Users/12692/Desktop/Autospill"
-  #setwd(tmp)
-  tmp <- withr::local_tempdir(pattern = "Autospill")
-  withr::local_dir(tmp)
-
   expect_true(length(the.flow.control) > 0)
   expect_true(length(the.flow.gate) > 0)
   
@@ -41,9 +33,10 @@ test_that("Test that get_compensation_error returns outputs", {
     # get compensation error in compensated data
 
     compensation.error <- get.compensation.error(
-        expr.data.unco, expr.data.comp, marker.spillover.unco.untr,
-        TRUE, TRUE, the.asp$posnegpop.file.label, the.flow.gate,
-        the.flow.control, the.asp
+        expr.data.unco, expr.data.comp,
+        marker.spillover.unco=the.marker.spillover.unco.untr,
+        TRUE, TRUE, the.asp$posnegpop.file.label, flow.gate=the.flow.gate,
+        flow.control=the.flow.control, asp=the.asp
     )
 
   expect_type(compensation.error, "list")
