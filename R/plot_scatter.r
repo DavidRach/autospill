@@ -43,9 +43,8 @@ plot.scatter <- function(
     spillover.unco.inte, spillover.unco.coef,
     spillover.comp.inte, spillover.comp.coef, spillover.comp.slop,
     marker.limit.range, marker.proper.limit.range, samp, marker, marker.proper,
-    scale.untransformed, figure.file.label, flow.gate=NULL, flow.control, asp
-)
-{
+    scale.untransformed, figure.file.label, flow.gate=NULL, flow.control, asp){
+    
     expr.data.ggp <- data.frame(
         x = c( expr.data.unco.x, expr.data.comp.x ),
         y = c( expr.data.unco.y, expr.data.comp.y ),

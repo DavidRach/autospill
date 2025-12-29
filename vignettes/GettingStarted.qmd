@@ -156,14 +156,9 @@ spillover.error.posnegpop <- process.posnegpop(marker.spillover.unco.untr,
     flow.gate, flow.control, asp )
 ```
 
-We get a geom_point error:  Error in `geom_point()`:
-! Problem while setting up geom aesthetics.
-ℹ Error occurred in the 1st layer.
-Caused by error in `check_aesthetics()`:
-! Aesthetics must be either length 1 or the same as the data (10000).
-✖ Fix the following mappings: `alpha`.
+Error due to the plot.scatter function, currently inactivated. 
 
-Alternatively?: refine spillover matrix iteratively (nope same errror)
+Next up, starts a round of iterations to refine the output. Unclear whether per individual fluorophore or all. 
 
 ```{r}
 #| eval: FALSE

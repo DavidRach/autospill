@@ -19,7 +19,7 @@
 #' @param figure.label TODOLIST
 #' @param flow.gate TODOLIST
 #' @param flow.control TODOLIST
-#' @param asp TODOLIST
+#' @param asp AutoSpill Parameters
 #' 
 #' @importFrom moments skewness
 #' @importFrom parallel mclapply
@@ -208,28 +208,28 @@ get.compensation.error <- function( expr.data.unco, expr.data.comp,
                 }
             }
 
-            if ( plot.figure && ! is.null( flow.control$figure.scatter.dir ) )
-                plot.scatter(
-                    expr.data.unco[
-                        flow.control$event.sample == samp, marker ],
-                    expr.data.unco[
-                        flow.control$event.sample == samp, marker.proper ],
-                    expr.data.comp[
-                        flow.control$event.sample == samp, marker ],
-                    expr.data.comp[
-                        flow.control$event.sample == samp,marker.proper ],
-                    marker.spillover.unco$inte[ marker.proper, marker ],
-                    marker.spillover.unco$coef[ marker.proper, marker ],
-                    marker.spillover.comp.inte[ marker ],
-                    marker.spillover.comp.coef[ marker ],
-                    marker.spillover.comp.slop[ marker ],
-                    range( c( marker.expr.trim.unco, marker.expr.trim.comp ) ),
-                    range( c( marker.proper.expr.trim.unco,
-                        marker.proper.expr.trim.comp ) ),
-                    samp, marker, marker.proper,
-                    scale.untransformed, figure.label,
-                    flow.gate, flow.control, asp
-                )
+            #if ( plot.figure && ! is.null( flow.control$figure.scatter.dir ) )
+                #plot.scatter(
+                #    expr.data.unco[
+                #        flow.control$event.sample == samp, marker ],
+                #    expr.data.unco[
+                #        flow.control$event.sample == samp, marker.proper ],
+                #    expr.data.comp[
+                #        flow.control$event.sample == samp, marker ],
+                #    expr.data.comp[
+                #        flow.control$event.sample == samp,marker.proper ],
+                #    marker.spillover.unco$inte[ marker.proper, marker ],
+                #    marker.spillover.unco$coef[ marker.proper, marker ],
+                #    marker.spillover.comp.inte[ marker ],
+                #    marker.spillover.comp.coef[ marker ],
+                #    marker.spillover.comp.slop[ marker ],
+                #    range( c( marker.expr.trim.unco, marker.expr.trim.comp ) ),
+                #    range( c( marker.proper.expr.trim.unco,
+                #        marker.proper.expr.trim.comp ) ),
+                #    samp, marker, marker.proper,
+                #    scale.untransformed, figure.label,
+                #    flow.gate, flow.control, asp
+                #)
         } # marker
 
         c( marker.spillover.comp.inte, marker.spillover.comp.coef,

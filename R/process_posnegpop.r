@@ -66,15 +66,17 @@ process.posnegpop <- function(marker.spillover.unco.untr, flow.gate,
 
     # write spillover and compensation matrices
 
-    if ( ! is.null( asp$table.spillover.dir ) )
+    if ( ! is.null( asp$table.spillover.dir ) ){
         write.csv( spillover.posnegpop.original,
             file = file.path( asp$table.spillover.dir,
                 sprintf( "%s.csv", asp$spillover.popnegpop.file.name ) ) )
-
-    if ( ! is.null( asp$table.compensation.dir ) )
+            }
+        
+    if ( ! is.null( asp$table.compensation.dir ) ){
         write.csv( compensation.posnegpop.original,
             file = file.path( asp$table.compensation.dir,
                 sprintf( "%s.csv", asp$compensation.popnegpop.file.name ) ) )
+            }
 
     # plot spillover and compensation matrices, by rows and columns
     # respectively
@@ -174,5 +176,5 @@ process.posnegpop <- function(marker.spillover.unco.untr, flow.gate,
         compensation = compensation.posnegpop,
         error = compensation.error
     )
-}
+    }
 
