@@ -6,51 +6,44 @@ test_that("Test that get_compensation_error returns outputs", {
   #setwd(tmp)
   tmp <- withr::local_tempdir(pattern = "Autospill")
   withr::local_dir(tmp)
-  asp <- get.autospill.param("paper", outpath=tmp)
-  flow.control <- read.flow.control(control.dir=FolderPath,
-    control.def.file=MetadataPath, asp=asp)
-  
-  flow.gate <- suppressWarnings(
-    gate.flow.data(flow.control=flow.control, asp=asp)
-  )
 
-  marker.spillover.unco.untr <- get.marker.spillover(scale.untransformed=TRUE, flow.gate=flow.gate,
-    flow.control=flow.control, asp=asp)
+  expect_true(length(the.flow.control) > 0)
+  expect_true(length(the.flow.gate) > 0)
   
-  spillover.posnegpop <- get.marker.spillover.posnegpop( flow.gate,
-        flow.control, asp )
-  
-      # get spillover and compensation matrices
+  # get spillover and compensation matrices
 
-    spillover.posnegpop <- get.marker.spillover.posnegpop( flow.gate,
-        flow.control, asp )
+  spillover.posnegpop <- get.marker.spillover.posnegpop(
+    flow.gate=the.flow.gate, flow.control=the.flow.control,
+    asp=the.asp)
 
-    compensation.posnegpop <- solve( spillover.posnegpop )
+  compensation.posnegpop <- solve(spillover.posnegpop)
 
     spillover.posnegpop.original <- spillover.posnegpop
-    rownames( spillover.posnegpop.original ) <- flow.control$marker.original
-    colnames( spillover.posnegpop.original ) <- flow.control$marker.original
+    rownames( spillover.posnegpop.original ) <- the.flow.control$marker.original
+    colnames( spillover.posnegpop.original ) <- the.flow.control$marker.original
 
     compensation.posnegpop.original <- compensation.posnegpop
-    rownames( compensation.posnegpop.original ) <- flow.control$marker.original
-    colnames( compensation.posnegpop.original ) <- flow.control$marker.original
+    rownames( compensation.posnegpop.original ) <- the.flow.control$marker.original
+    colnames( compensation.posnegpop.original ) <- the.flow.control$marker.original
 
     # get uncompensated expresion data
 
-    expr.data.unco <- flow.control$expr.data.untr
+    expr.data.unco <- the.flow.control$expr.data.untr
 
     # get compensated expression data
 
-    flow.set.comp <- lapply( flow.control$flow.set, compensate,
+    flow.set.comp <- lapply( the.flow.control$flow.set, compensate,
         compensation( spillover.posnegpop.original ) )
 
-    expr.data.comp <- get.flow.expression.data( flow.set.comp, flow.control )
+    expr.data.comp <- get.flow.expression.data(flow.set.comp,
+       flow.control=the.flow.control )
 
     # get compensation error in compensated data
 
     compensation.error <- get.compensation.error(
         expr.data.unco, expr.data.comp, marker.spillover.unco.untr,
-        TRUE, TRUE, asp$posnegpop.file.label, flow.gate, flow.control, asp
+        TRUE, TRUE, the.asp$posnegpop.file.label, the.flow.gate,
+        the.flow.control, the.asp
     )
 
   expect_type(compensation.error, "list")

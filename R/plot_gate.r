@@ -333,13 +333,13 @@ plot.gate <- function(gate.stage, samp, gate.data, gate.marker, gate.bound,
                     asp$thumbnail.gate.bar.margin,
                     asp$thumbnail.gate.bar.margin ),
                 axis.ticks = element_line(
-                    size = asp$thumbnail.panel.line.size ),
+                    linewidth = asp$thumbnail.panel.line.size ),
                 axis.text = element_text(
                     size = asp$thumbnail.axis.text.size ),
                 axis.title = element_text(
                     size = asp$thumbnail.axis.title.size ),
                 panel.border = element_rect(
-                    size = asp$thumbnail.panel.line.size ),
+                    linewidth = asp$thumbnail.panel.line.size ),
                 panel.grid.major = element_blank(),
                 panel.grid.minor = element_blank() )
 

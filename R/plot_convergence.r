@@ -98,10 +98,10 @@ plot_convergence <- function(convergence.log, popnegpop.slope, asp)
         theme( legend.position = "none",
             plot.margin = margin( asp$figure.margin, asp$figure.margin,
                 asp$figure.margin, asp$figure.margin ),
-            axis.ticks = element_line( size = asp$figure.panel.line.size ),
+            axis.ticks = element_line(linewidth = asp$figure.panel.line.size ),
             axis.text = element_text( size = asp$figure.axis.text.size ),
             axis.title = element_text( size = asp$figure.axis.title.size ),
-            panel.border = element_rect( size = asp$figure.panel.line.size ),
+            panel.border = element_rect(linewidth = asp$figure.panel.line.size ),
             panel.grid.major = element_blank(),
             panel.grid.minor = element_blank() )
 

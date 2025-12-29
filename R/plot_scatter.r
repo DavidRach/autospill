@@ -353,13 +353,13 @@ plot.scatter <- function(
                     asp$figure.margin, asp$figure.margin,
                     asp$figure.margin ),
                     axis.ticks = element_line(
-                        size = asp$figure.panel.line.size ),
+                        linewidth = asp$figure.panel.line.size ),
                     axis.text = element_text(
                         size = asp$figure.scatter.axis.text.size ),
                     axis.title = element_text(
                         size = asp$figure.scatter.axis.title.size ),
                     panel.border = element_rect(
-                        size = asp$figure.panel.line.size ),
+                        linewidth = asp$figure.panel.line.size ),
                     panel.grid.major = element_blank(),
                     panel.grid.minor = element_blank() )
 
@@ -462,7 +462,7 @@ plot.scatter <- function(
                         axis.title = element_text(
                             size = asp$thumbnail.scatter.axis.title.size ),
                         panel.border = element_rect(
-                            size = asp$thumbnail.panel.line.size ),
+                            linewidth = asp$thumbnail.panel.line.size ),
                         panel.grid.major = element_blank(),
                         panel.grid.minor = element_blank() )
 

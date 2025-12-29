@@ -85,7 +85,7 @@ plot.matrix <- function( the.matrix, by.rows, figure.dir, figure.file.label,
                 legend.position = "none",
                 axis.line = element_blank(),
                 axis.ticks = element_line(
-                    size = asp$figure.panel.line.size ),
+                    linewidth = asp$figure.panel.line.size ),
                 axis.text.x = element_text(
                     size = asp$figure.axis.text.size, angle = 90,
                     hjust = 1, vjust = 0.5 ),
@@ -126,7 +126,7 @@ plot.matrix <- function( the.matrix, by.rows, figure.dir, figure.file.label,
                     legend.position = "none",
                     axis.line = element_blank(),
                     axis.ticks = element_line(
-                        size = asp$thumbnail.panel.line.size ),
+                        linewidth = asp$thumbnail.panel.line.size ),
                     axis.text.x = element_text(
                         size = asp$thumbnail.axis.text.size,
                         angle = 90, hjust = 1, vjust = 0.5 ),

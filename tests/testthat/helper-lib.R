@@ -10,10 +10,34 @@ FolderLocation <- function(subdir = NULL) {
 FolderPath <- FolderLocation(subdir="MM1")
 MetadataPath <- list.files(FolderPath, pattern=".csv", full.names=TRUE)
 
-# The FlowSet Objects
+tmp <- withr::local_tempdir(pattern = "Autospill")
+withr::local_dir(tmp)
+the.asp <- get.autospill.param("paper", outpath=tmp)
+the.flow.control <- read.flow.control(control.dir=FolderPath,
+    control.def.file=MetadataPath, asp=the.asp)
+  
+the.flow.gate <- suppressWarnings(
+    gate.flow.data(flow.control=the.flow.control, asp=the.asp)
+  )
 
-#asp <- get.autospill.param("paper", outpath)
-#flow.scatter.parameter <- autospill:::read.scatter.parameter(asp)
+the.marker.spillover.unco.untr <- get.marker.spillover(
+  scale.untransformed=TRUE, flow.gate=the.flow.gate,
+  flow.control=the.flow.control, asp=the.asp)
+
+the.marker.spillover.unco.tran <- get.marker.spillover(
+  scale.untransformed=FALSE, flow.gate=the.flow.gate,
+  flow.control=the.flow.control, asp=the.asp)
+
+the.spillover.error.posnegpop <- process.posnegpop(
+  marker.spillover.unco.untr=the.marker.spillover.unco.untr,
+  flow.gate=the.flow.gate, flow.control=the.flow.control,
+  asp=the.asp)
+  
+the.refine.spillover.result <- refine.spillover(
+  marker.spillover.unco.untr=the.marker.spillover.unco.untr,
+    marker.spillover.unco.tran=the.marker.spillover.unco.tran,
+    flow.gate=the.flow.gate, flow.control=the.flow.control,
+    asp=the.asp)
 
 # Internal Generator
 

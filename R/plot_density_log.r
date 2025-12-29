@@ -44,7 +44,7 @@ plot.density.log <- function(x.data, x.label, plot.file.path, asp)
 
     x.ggplot <- ggplot( x.ggdata, aes( x = .data$log.abs.x, color = .data$sign,
             fill = .data$sign, linetype = .data$sign ) ) +
-        geom_density( alpha = 0.1, size = asp$figure.density.line.size ) +
+        geom_density( alpha = 0.1, linewidth = asp$figure.density.line.size ) +
         scale_color_manual( values = scale.color.value ) +
         scale_fill_manual( values = scale.color.value ) +
         scale_linetype_manual( values = scale.linetype.value ) +
@@ -53,10 +53,10 @@ plot.density.log <- function(x.data, x.label, plot.file.path, asp)
         theme( plot.margin = margin( asp$figure.margin,
                 asp$figure.margin, asp$figure.margin,
                 asp$figure.margin ),
-            axis.ticks = element_line( size = asp$figure.panel.line.size ),
+            axis.ticks = element_line(linewidth = asp$figure.panel.line.size ),
             axis.text = element_text( size = asp$figure.axis.text.size ),
             axis.title = element_text( size = asp$figure.axis.title.size ),
-            panel.border = element_rect( size = asp$figure.panel.line.size ),
+            panel.border = element_rect(linewidth = asp$figure.panel.line.size ),
             panel.grid.major = element_blank(),
             panel.grid.minor = element_blank(),
             legend.position = "none" )
@@ -106,7 +106,7 @@ plot.density.log.together <- function( x.table, x.label, plot.file.path, asp )
 
     x.ggplot <- ggplot( x.ggdata, aes( x = .data$log.abs.x, color = .data$sign,
             fill = .data$sign, linetype = .data$sign ) ) +
-        geom_density( alpha = 0.1, size = asp$figure.density.line.size ) +
+        geom_density( alpha = 0.1, linewidth = asp$figure.density.line.size ) +
         scale_color_manual( values = scale.color.value ) +
         scale_fill_manual( values = scale.color.value  ) +
         scale_linetype_manual( values = scale.linetype.value ) +
@@ -115,10 +115,10 @@ plot.density.log.together <- function( x.table, x.label, plot.file.path, asp )
         theme( plot.margin = margin( asp$figure.margin,
             asp$figure.margin, asp$figure.margin,
             asp$figure.margin ),
-            axis.ticks = element_line( size = asp$figure.panel.line.size ),
+            axis.ticks = element_line(linewidth = asp$figure.panel.line.size ),
             axis.text = element_text( size = asp$figure.axis.text.size ),
             axis.title = element_text( size = asp$figure.axis.title.size ),
-            panel.border = element_rect( size = asp$figure.panel.line.size ),
+            panel.border = element_rect(linewidth = asp$figure.panel.line.size ),
             panel.grid.major = element_blank(),
             panel.grid.minor = element_blank(),
             legend.position = "none" )
